@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>True Me </title>
-    <link>https://zetaoyang.github.io/</link>
-    <description>Recent content on True Me </description>
+    <title>Golang on True Me </title>
+    <link>https://zetaoyang.github.io/categories/golang/</link>
+    <description>Recent content in Golang on True Me </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
-    <lastBuildDate>Fri, 01 Jul 2016 16:20:50 +0800</lastBuildDate>
-    <atom:link href="https://zetaoyang.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>About</title>
-      <link>https://zetaoyang.github.io/about/</link>
-      <pubDate>Fri, 01 Jul 2016 16:20:50 +0800</pubDate>
-      
-      <guid>https://zetaoyang.github.io/about/</guid>
-      <description>&lt;p&gt;某时某人 · In Those Days.&lt;/p&gt;
-</description>
-    </item>
+    <lastBuildDate>Sun, 24 May 2015 18:52:17 +0208</lastBuildDate>
+    <atom:link href="https://zetaoyang.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>hugo create blog</title>
