@@ -7,25 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
-    <lastBuildDate>Fri, 01 Jul 2016 16:20:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2015 18:51:50 +0200</lastBuildDate>
     <atom:link href="https://zetaoyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
       <link>https://zetaoyang.github.io/about/</link>
-      <pubDate>Fri, 01 Jul 2016 16:20:50 +0800</pubDate>
+      <pubDate>Sun, 24 May 2015 18:51:50 +0200</pubDate>
       
       <guid>https://zetaoyang.github.io/about/</guid>
-      <description>&lt;p&gt;某时某人 · In Those Days.&lt;/p&gt;
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://zetaoyang.github.io/contact/</link>
+      <pubDate>Sun, 24 May 2015 18:52:04 +0200</pubDate>
+      
+      <guid>https://zetaoyang.github.io/contact/</guid>
+      <description>&lt;p&gt;Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Building a theme with Hugo</title>
-      <link>https://zetaoyang.github.io/posts/hugo-create-blog/</link>
+      <link>https://zetaoyang.github.io/post/post-01/</link>
       <pubDate>Sun, 24 May 2015 18:53:17 +0200</pubDate>
       
-      <guid>https://zetaoyang.github.io/posts/hugo-create-blog/</guid>
+      <guid>https://zetaoyang.github.io/post/post-01/</guid>
       <description>
 
 &lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
@@ -1118,6 +1132,87 @@ $ vi themes/zafta/layouts/_default/single.html
 
 &lt;p&gt;DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&amp;rsquo;re figuring that out, accept that you&amp;rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&amp;rsquo;s okay to delay splitting up a template.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Second post</title>
+      <link>https://zetaoyang.github.io/post/post-02/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0200</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-02/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Third post</title>
+      <link>https://zetaoyang.github.io/post/post-03/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0201</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fourth post</title>
+      <link>https://zetaoyang.github.io/post/post-04/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0202</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-04/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Five post</title>
+      <link>https://zetaoyang.github.io/post/post-05/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0204</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-05/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post 06</title>
+      <link>https://zetaoyang.github.io/post/post-06/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0206</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post 07</title>
+      <link>https://zetaoyang.github.io/post/post-07/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0207</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-07/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post 08</title>
+      <link>https://zetaoyang.github.io/post/post-08/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0208</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-08/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post 09</title>
+      <link>https://zetaoyang.github.io/post/post-09/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0209</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-09/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post 10</title>
+      <link>https://zetaoyang.github.io/post/post-10/</link>
+      <pubDate>Sun, 24 May 2015 18:52:17 +0210</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-10/</guid>
+      <description></description>
     </item>
     
   </channel>
