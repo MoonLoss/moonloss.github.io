@@ -1,0 +1,27 @@
+{
+  "name": "diry",
+  "version": "0.0.1",
+  "description": "upload img to github for blog ",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "build": "npm run build:osx && npm run build:win && npm run build:linux",
+    "build:osx": "electron-packager . $npm_package_productName --out=dist --ignore='^/dist$' --overwrite --prune --asar --arch=all --platform=darwin --icon=./assets/app.icns --version=$npm_package_electronVersion --app-version=$npm_package_version",
+    "build:win": "electron-packager . $npm_package_productName --out=dist --arch=all --platform=win32 --ignore='^/dist$' --prune --asar --overwrite --icon=./assets/app.ico --version=$npm_package_electronVersion --app-version=$npm_package_version",
+    "build:linux": "electron-packager . $npm_package_productName --out=dist --arch=all --platform=linux --ignore='^/dist$' --prune --asar --overwrite --icon=./assets/app.png --version=$npm_package_electronVersion --app-version=$npm_package_version",
+    "package": "npm run package:win32 && npm run package:win64 && npm run package:osx && npm run package:linux",
+    "package:win64": "electron-builder dist/Temps-win32-x64/ --platform=win --out=dist --config=config.json && mv 'dist/Temps Setup.exe' dist/Temps_Windows64.exe",
+    "package:win32": "electron-builder dist/Temps-win32-ia32/ --platform=win --out=dist --config=config.json && mv 'dist/Temps Setup.exe' dist/Temps_Windows32.exe",
+    "package:osx": "hdiutil create -format UDZO -srcfolder dist/Temps-darwin-x64/Temps.app dist/Temps_Mac.dmg",
+    "package:linux": "cd dist/ && zip -r Temps_Linux_x64.zip Temps-linux-x64 && zip -r Temps_Linux_ia32.zip Temps-linux-ia32 && cd ../"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Zetao_Yang",
+  "license": "MIT",
+  "dependencies": {
+    "github-api": "^2.3.0"
+  }
+}
