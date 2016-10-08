@@ -30,8 +30,8 @@
 &lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/github-api-js.png&#34; alt=&#34;github-api-js.jpg&#34; /&gt;&lt;br /&gt;
 经调研发现 &lt;a href=&#34;https://github.com/michael/github&#34;&gt;GitHub.js wrapper around the GitHub API&lt;/a&gt; 比较好入手，基本将Github API 全都实现了，并且封装了自己的接口，但是缺点还是有的，文档写的不太详细。然后就开始看它的文档，其中Repository的writeFile()方法就是上传文件的函数。&lt;br /&gt;
 其中writeFile():&lt;br /&gt;
-&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/github-api-writefile-2.3.0.png&#34; alt=&#34;github-api-writefile-2.3.0.png&#34; /&gt;&lt;br /&gt;
-这里先贴出代码：&lt;/p&gt;
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/github-api-writeFile-2.3.0.png&#34; alt=&#34;github-api-writeFile-2.3.0.png&#34; /&gt;&lt;br /&gt;
+这里先贴出代码(ES6标准)：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//导入github-api
 var GitHub = require(&amp;quot;github-api&amp;quot;)
