@@ -129,127 +129,40 @@ echo $encrypted.&quot; &quot;.strlen($encrypted).&quot;   &quot;.base64_encode($
 echo $decrypted;
 ?&gt;
 </code></pre><h3 id="java">java</h3><blockquote><p>此处的核心代码是我从互联网上搜索到的，出处已经记不清是哪了，还请原作者见谅。</p></blockquote><p><pre><code>
-package org.aisharing.rsa.data;</code></pre></p><p>import java.io.IOException; import java.security.InvalidKeyException; import java.security.KeyFactory; import java.security.NoSuchAlgorithmException; import java.security.interfaces.RSAPrivateKey; import java.security.interfaces.RSAPublicKey; import java.security.spec.InvalidKeySpecException; import java.security.spec.PKCS8EncodedKeySpec; import java.security.spec.X509EncodedKeySpec;</p><p>import javax.crypto.BadPaddingException; import javax.crypto.Cipher; import javax.crypto.IllegalBlockSizeException; import javax.crypto.NoSuchPaddingException; import javax.xml.parsers.ParserConfigurationException;</p><p>import org.aisharing.rsa.format.KeyFormat; import org.xml.sax.SAXException;</p><p>import sun.misc.BASE64Decoder; import sun.misc.BASE64Encoder;</p><p>@SuppressWarnings(&ldquo;restriction&rdquo;) public class KeyWorker {</p><pre><code>private String _key;
+private String _key;
 private KeyFormat _format;
 private Cipher _decryptProvider;
-private Cipher _encryptProvider;
+private Cipher _encryptProvider;</code></pre></p><p>public KeyWorker(String key) { this(key, KeyFormat.ASN); }</p><p>public KeyWorker(String key, KeyFormat format) { this._key = key; this._format = format; }</p><p>public String encrypt(String data) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, IOException, SAXException, ParserConfigurationException { this._makesureEncryptProvider(); byte[] bytes = data.getBytes(&ldquo;UTF-8&rdquo;); bytes = this._encryptProvider.doFinal(bytes); return new BASE64Encoder().encode(bytes); }</p><p>public String decrypt(String data) throws IOException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, SAXException, ParserConfigurationException { this._makesureDecryptProvider();</p><pre><code>byte[] bytes = new BASE64Decoder().decodeBuffer(data);
+bytes = this._decryptProvider.doFinal(bytes);
+return new String(bytes, &quot;UTF-8&quot;);
+</code></pre><p>}</p><p>private void _makesureDecryptProvider() throws NoSuchAlgorithmException, NoSuchPaddingException, IOException, InvalidKeySpecException, InvalidKeyException, SAXException, ParserConfigurationException { if (this._decryptProvider != null) return;</p><p>Cipher deCipher = Cipher.getInstance(&ldquo;RSA/ECB/PKCS1Padding&rdquo;); switch (this._format) {</p><p>case PEM: { this._key = this._key.replace(&ldquo;&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replaceAll(&rdquo;\r\n&rdquo;, &ldquo;&rdquo;); } case ASN: default: { Boolean isPrivate = this._key.length() &gt; 500; if (isPrivate) { PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec( new BASE64Decoder().decodeBuffer(this._key));</p><pre><code>    KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
+    RSAPrivateKey privateKey = (RSAPrivateKey) factory
+            .generatePrivate(spec);
+    deCipher.init(Cipher.DECRYPT_MODE, privateKey);
+} else {
+    X509EncodedKeySpec spec = new X509EncodedKeySpec(
+            new BASE64Decoder().decodeBuffer(this._key));
 
-public KeyWorker(String key) {
-    this(key, KeyFormat.ASN);
+    KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
+    RSAPublicKey publicKey = (RSAPublicKey) factory
+            .generatePublic(spec);
+    deCipher.init(Cipher.DECRYPT_MODE, publicKey);
 }
+</code></pre><p>} break; }</p><p>this._decryptProvider = deCipher; }</p><p>private void _makesureEncryptProvider() throws NoSuchAlgorithmException, NoSuchPaddingException, IOException, InvalidKeySpecException, InvalidKeyException, SAXException, ParserConfigurationException { if (this._encryptProvider != null) return;</p><p>Cipher enCipher = Cipher.getInstance(&ldquo;RSA/ECB/PKCS1Padding&rdquo;); switch (this._format) {</p><p>case PEM: { this._key = this._key.replace(&ldquo;&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replace(&ldquo;&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;&rdquo;, &ldquo;&rdquo;) .replaceAll(&rdquo;\r\n&rdquo;, &ldquo;&rdquo;); } case ASN: default: { Boolean isPrivate = this._key.length() &gt; 500; if (isPrivate) { PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec( new BASE64Decoder().decodeBuffer(this._key));</p><pre><code>    KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
+    RSAPrivateKey privateKey = (RSAPrivateKey) factory
+            .generatePrivate(spec);
+    enCipher.init(Cipher.ENCRYPT_MODE, privateKey);
 
-public KeyWorker(String key, KeyFormat format) {
-    this._key = key;
-    this._format = format;
+} else {
+    X509EncodedKeySpec spec = new X509EncodedKeySpec(
+            new BASE64Decoder().decodeBuffer(this._key));
+
+    KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
+    RSAPublicKey publicKey = (RSAPublicKey) factory
+            .generatePublic(spec);
+    enCipher.init(Cipher.ENCRYPT_MODE, publicKey);
 }
-
-public String encrypt(String data) throws IllegalBlockSizeException,
-BadPaddingException, InvalidKeyException, NoSuchAlgorithmException,
-NoSuchPaddingException, InvalidKeySpecException, IOException, SAXException, ParserConfigurationException {
-    this._makesureEncryptProvider();
-    byte[] bytes = data.getBytes(&quot;UTF-8&quot;);
-    bytes = this._encryptProvider.doFinal(bytes);
-    return new BASE64Encoder().encode(bytes);
-}
-
-public String decrypt(String data) throws IOException,
-IllegalBlockSizeException, BadPaddingException,
-InvalidKeyException, NoSuchAlgorithmException,
-NoSuchPaddingException, InvalidKeySpecException, SAXException, ParserConfigurationException {
-    this._makesureDecryptProvider();
-
-    byte[] bytes = new BASE64Decoder().decodeBuffer(data);
-    bytes = this._decryptProvider.doFinal(bytes);
-    return new String(bytes, &quot;UTF-8&quot;);
-}
-
-private void _makesureDecryptProvider() throws NoSuchAlgorithmException,
-NoSuchPaddingException, IOException, InvalidKeySpecException,
-InvalidKeyException, SAXException, ParserConfigurationException {
-if (this._decryptProvider != null)
-    return;
-
-Cipher deCipher = Cipher.getInstance(&quot;RSA/ECB/PKCS1Padding&quot;);
-switch (this._format) {
-
-case PEM: {
-    this._key = this._key.replace(&quot;-----BEGIN PUBLIC KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----END PUBLIC KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----BEGIN PRIVATE KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----END PRIVATE KEY-----&quot;, &quot;&quot;)
-            .replaceAll(&quot;\r\n&quot;, &quot;&quot;);
-}
-case ASN:
-default: {
-    Boolean isPrivate = this._key.length() &gt; 500;
-    if (isPrivate) {
-        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(
-                new BASE64Decoder().decodeBuffer(this._key));
-
-        KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
-        RSAPrivateKey privateKey = (RSAPrivateKey) factory
-                .generatePrivate(spec);
-        deCipher.init(Cipher.DECRYPT_MODE, privateKey);
-    } else {
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(
-                new BASE64Decoder().decodeBuffer(this._key));
-
-        KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
-        RSAPublicKey publicKey = (RSAPublicKey) factory
-                .generatePublic(spec);
-        deCipher.init(Cipher.DECRYPT_MODE, publicKey);
-    }
-}
-    break;
-}
-
-this._decryptProvider = deCipher;
-}
-
-
-private void _makesureEncryptProvider() throws NoSuchAlgorithmException,
-NoSuchPaddingException, IOException, InvalidKeySpecException,
-InvalidKeyException, SAXException, ParserConfigurationException {
-if (this._encryptProvider != null)
-    return;
-
-Cipher enCipher = Cipher.getInstance(&quot;RSA/ECB/PKCS1Padding&quot;);
-switch (this._format) {
-
-case PEM: {
-    this._key = this._key.replace(&quot;-----BEGIN PUBLIC KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----END PUBLIC KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----BEGIN PRIVATE KEY-----&quot;, &quot;&quot;)
-            .replace(&quot;-----END PRIVATE KEY-----&quot;, &quot;&quot;)
-            .replaceAll(&quot;\r\n&quot;, &quot;&quot;);
-}
-case ASN:
-default: {
-    Boolean isPrivate = this._key.length() &gt; 500;
-    if (isPrivate) {
-        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(
-                new BASE64Decoder().decodeBuffer(this._key));
-
-        KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
-        RSAPrivateKey privateKey = (RSAPrivateKey) factory
-                .generatePrivate(spec);
-        enCipher.init(Cipher.ENCRYPT_MODE, privateKey);
-
-    } else {
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(
-                new BASE64Decoder().decodeBuffer(this._key));
-
-        KeyFactory factory = KeyFactory.getInstance(&quot;RSA&quot;);
-        RSAPublicKey publicKey = (RSAPublicKey) factory
-                .generatePublic(spec);
-        enCipher.init(Cipher.ENCRYPT_MODE, publicKey);
-    }
-}
-    break;
-}
-
-        this._encryptProvider = enCipher;
-    }
+</code></pre><p>} break; }</p><pre><code>    this._encryptProvider = enCipher;
 }
 </code></pre><p>以上代码核心就是将其它密钥格式转换成<code>.pem</code>格式，和<code>php</code>后台那边适配。</p><h3 id="web">web</h3><p>由于是前端，所以只做加密数据。然后必须先将密钥对 ’分解‘，成 ’n‘ , &rsquo;d&rsquo; , &lsquo;e&rsquo;。上代码：</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
