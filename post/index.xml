@@ -7,8 +7,96 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zetao的小站</copyright>
-    <lastBuildDate>Sat, 08 Oct 2016 11:04:19 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Oct 2016 10:43:34 +0800</lastBuildDate>
     <atom:link href="https://zetaoyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>生成渐进式jpeg</title>
+      <link>https://zetaoyang.github.io/post/post-02/</link>
+      <pubDate>Sun, 09 Oct 2016 10:43:34 +0800</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-02/</guid>
+      <description>&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;实现了一个带参数的命令行将图片转换成&lt;code&gt;progressive encoding&lt;/code&gt;(渐进式)JPEG格式。&lt;br /&gt;
+　　这里先贴出代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#! python3
+import platform, sys, os
+import getopt
+from PIL import Image ,ImageFile
+
+def isWindows():
+    return &#39;Windows&#39; in platform.system()
+ 
+def isLinux():
+    return &#39;Linux&#39; in platform.system()
+
+def usage():
+    print (&amp;quot;-h: This message.&amp;quot;)
+    print (&amp;quot;-i [file]: the path of the target image file. &amp;quot;)
+    print (&amp;quot;-o [filepath]: the path of the output. &amp;quot;)
+    print (&amp;quot;EXAMPLES:&amp;quot;)
+    print (&amp;quot;$py tojpeg.py -i /home/test.jpg - o /home&amp;quot;)
+
+def info():
+    print (&amp;quot;**************************************************&amp;quot;)
+    print (&amp;quot;**|&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;|**&amp;quot;)
+    print (&amp;quot;**|convert images to progressive encoding JPEG |**&amp;quot;)
+    print (&amp;quot;**|Version: 1 beta                             |**&amp;quot;)
+    print (&amp;quot;**|By: zetao yang                              |**&amp;quot;)
+    print (&amp;quot;**|Email: yangzetao2015[@] outlook             |**&amp;quot;)
+    print (&amp;quot;**|https://zetaoyang.github.io                 |**&amp;quot;)
+    print (&amp;quot;**|-                                           |**&amp;quot;)
+    print (&amp;quot;**|Usage: $tojpeg -h                           |**&amp;quot;)
+    print (&amp;quot;**|                                            |**&amp;quot;)
+    print (&amp;quot;**|,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,|**&amp;quot;)
+    print (&amp;quot;**************************************************&amp;quot;)
+    print (&amp;quot;&amp;quot;)
+
+if(isWindows()):
+   os.system(&amp;quot;cls&amp;quot;)
+if(isLinux()):
+   os.system(&amp;quot;clear&amp;quot;)
+
+def main():
+    info()
+    try:
+        #使用sys.argv[1:] 过滤掉第一个参数
+        #（它是执行脚本的名字，不应算作参数的一部分）
+        opts,args = getopt.getopt(sys.argv[1:],&amp;quot;hi:o:&amp;quot;, [&amp;quot;help&amp;quot;,&amp;quot;input=&amp;quot; ,&amp;quot;output=&amp;quot;])
+    except getopt.GetoptError as err:
+        print (err)
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt in (&amp;quot;-h&amp;quot;,&amp;quot;--help&amp;quot;):
+            usage()
+            sys.exit()
+        elif opt in (&amp;quot;-i&amp;quot;,&amp;quot;--input&amp;quot;):
+            input_file = arg
+        elif opt in (&amp;quot;-o&amp;quot;,&amp;quot;--output&amp;quot;):
+            output_path = arg
+        else:
+            assert False, &amp;quot;unhandled option&amp;quot;
+
+    try:
+        img = Image.open(input_file)
+        destination = output_path + &amp;quot;/output.jpeg&amp;quot;
+        try:
+            img.save(destination,&amp;quot;JPEG&amp;quot;,quality=80,optimize=True,progressive=True)
+            print(&amp;quot;conversion is ok.&amp;quot;)
+        except IOError:
+            ImageFile.MAXBLOCK = img.size[0]*img.size[1]
+            img.save(destination,&amp;quot;JPEG&amp;quot;,quality=80,optimize=True,progressive=True)
+    except KeyboardInterrupt:
+        print (&amp;quot;\nWell i hope you had a good time.&amp;quot;)
+        
+if __name__ == &amp;quot;__main__&amp;quot;:
+    main()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;未完待续&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>用Github API 上传文件的方法</title>
