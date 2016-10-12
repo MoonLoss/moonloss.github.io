@@ -16,7 +16,7 @@
       <pubDate>Sun, 09 Oct 2016 10:43:34 +0800</pubDate>
       
       <guid>https://zetaoyang.github.io/post/post-02/</guid>
-      <description>&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;实现了一个带参数的命令行将图片转换成&lt;code&gt;progressive encoding&lt;/code&gt;(渐进式)JPEG格式。&lt;br /&gt;
+      <description>&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;实现了一个带参数的命令行将图片转换成&lt;code&gt;progressive encoding&lt;/code&gt;(渐进式) JPEG 格式。&lt;br /&gt;
 　　这里先贴出代码：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#! python3
@@ -98,7 +98,7 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     main()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;最后可以用&lt;a href=&#34;https://github.com/pyinstaller/pyinstaller&#34;&gt;pyinstaller&lt;/a&gt;打包分发了。&lt;/p&gt;
+&lt;p&gt;最后可以用 &lt;a href=&#34;https://github.com/pyinstaller/pyinstaller&#34;&gt;pyinstaller&lt;/a&gt; 打包分发了。&lt;/p&gt;
 </description>
     </item>
     

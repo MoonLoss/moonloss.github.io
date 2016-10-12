@@ -16,7 +16,7 @@
       <pubDate>Sun, 09 Oct 2016 10:43:34 +0800</pubDate>
       
       <guid>https://zetaoyang.github.io/post/post-02/</guid>
-      <description>&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;实现了一个带参数的命令行将图片转换成&lt;code&gt;progressive encoding&lt;/code&gt;(渐进式)JPEG格式。&lt;br /&gt;
+      <description>&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;实现了一个带参数的命令行将图片转换成&lt;code&gt;progressive encoding&lt;/code&gt;(渐进式) JPEG 格式。&lt;br /&gt;
 　　这里先贴出代码：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#! python3
@@ -98,12 +98,12 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     main()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;最后可以用&lt;a href=&#34;https://github.com/pyinstaller/pyinstaller&#34;&gt;pyinstaller&lt;/a&gt;打包分发了。&lt;/p&gt;
+&lt;p&gt;最后可以用 &lt;a href=&#34;https://github.com/pyinstaller/pyinstaller&#34;&gt;pyinstaller&lt;/a&gt; 打包分发了。&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>非对称加密(RSA)数据传送的实战</title>
+      <title>非对称加密( RSA )数据传送的实战</title>
       <link>https://zetaoyang.github.io/post/post-03/</link>
       <pubDate>Thu, 06 Oct 2016 21:24:17 +0800</pubDate>
       
@@ -111,16 +111,16 @@ if __name__ == &amp;quot;__main__&amp;quot;:
       <description>
 
 &lt;blockquote&gt;
-&lt;p&gt;建议先了解一下RSA原理，再看本文。推荐阮一峰老师的两篇文章：&lt;br /&gt;
-* &lt;a href=&#34;http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html&#34;&gt;RSA算法原理（一）&lt;/a&gt;&lt;br /&gt;
-* &lt;a href=&#34;http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html&#34;&gt;RSA算法原理（二）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;建议先了解一下 RSA 原理，再看本文。推荐阮一峰老师的两篇文章：&lt;br /&gt;
+* &lt;a href=&#34;http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html&#34;&gt;RSA 算法原理（一）&lt;/a&gt;&lt;br /&gt;
+* &lt;a href=&#34;http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html&#34;&gt;RSA 算法原理（二）&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;因为&lt;code&gt;php&lt;/code&gt;支持的密钥格式是&lt;code&gt;.pem&lt;/code&gt;所以&lt;code&gt;web&lt;/code&gt;和&lt;code&gt;java&lt;/code&gt;端都要将&lt;code&gt;pem&lt;/code&gt;格式转换成其语言平台支持的格式。 比如，&lt;code&gt;java&lt;/code&gt;支持的格式默认是&lt;code&gt;.asn&lt;/code&gt;。&lt;/p&gt;
 
-&lt;h3 id=&#34;密钥对的生成-php&#34;&gt;密钥对的生成(php)&lt;/h3&gt;
+&lt;h3 id=&#34;密钥对的生成-php&#34;&gt;密钥对的生成( php )&lt;/h3&gt;
 
-&lt;p&gt;如果系统是&lt;code&gt;Linux&lt;/code&gt;的话，可以使用&lt;code&gt;openssl&lt;/code&gt;命令来生成。这里展示的是在&lt;code&gt;Windows&lt;/code&gt;系统下的操作(因为当时做这个东西的时候是在Windows 8.1系统下完成的)，使用 &lt;a href=&#34;https://www.apachefriends.org/zh_cn/index.html&#34;&gt;xampp&lt;/a&gt; 集成好的&lt;code&gt;openssl&lt;/code&gt;(其配置文件路径在xampp的安装路径下的php\extras\openssl\openssl.cnf，我们这次使用的就是这个文件)，下面展示用&lt;code&gt;php&lt;/code&gt;来生成密钥对：(n和e组成公钥，n和d组成私钥)&lt;/p&gt;
+&lt;p&gt;如果系统是&lt;code&gt;Linux&lt;/code&gt;的话，可以使用&lt;code&gt;openssl&lt;/code&gt;命令来生成。这里展示的是在&lt;code&gt;Windows&lt;/code&gt;系统下的操作(因为当时做这个东西的时候是在 Windows 8.1 系统下完成的)，使用 &lt;a href=&#34;https://www.apachefriends.org/zh_cn/index.html&#34;&gt;xampp&lt;/a&gt; 集成好的&lt;code&gt;openssl&lt;/code&gt;(其配置文件路径在xampp的安装路径下的php\extras\openssl\openssl.cnf，我们这次使用的就是这个文件)，下面展示用&lt;code&gt;php&lt;/code&gt;来生成密钥对：(n 和 e 组成公钥，n 和 d 组成私钥)&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
 //OPENSSL_CNF为 openssl.cnf 的路径
@@ -434,7 +434,7 @@ Status:&amp;lt;br&amp;gt;
 &amp;lt;html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;对应的php后台解密&#34;&gt;对应的php后台解密：&lt;/h5&gt;
+&lt;h5 id=&#34;对应的-php-后台解密&#34;&gt;对应的 php 后台解密：&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php 
 //header(&amp;quot;Content-type:text/javascript;charset=utf-8&amp;quot;);
