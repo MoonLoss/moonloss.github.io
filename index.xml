@@ -80,6 +80,10 @@ def main():
         print (err)
         sys.exit(2)
 
+    if not opts and not args:
+        usage()
+        sys.exit()
+
     for opt, arg in opts:
         if opt in (&amp;quot;-h&amp;quot;,&amp;quot;--help&amp;quot;):
             usage()
@@ -107,7 +111,7 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     main()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;未完待续&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;最后可以用&lt;a href=&#34;https://github.com/pyinstaller/pyinstaller&#34;&gt;pyinstaller&lt;/a&gt;打包分发了。&lt;/p&gt;
 </description>
     </item>
     
