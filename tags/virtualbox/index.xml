@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zetao的小站</copyright>
-    <lastBuildDate>Sat, 10 Oct 2015 10:48:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Oct 2016 10:48:19 +0800</lastBuildDate>
     <atom:link href="https://zetaoyang.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>在 Alpine Linux 上编译 Linux0.11 内核</title>
       <link>https://zetaoyang.github.io/post/post-04/</link>
-      <pubDate>Sat, 10 Oct 2015 10:48:19 +0800</pubDate>
+      <pubDate>Mon, 10 Oct 2016 10:48:19 +0800</pubDate>
       
       <guid>https://zetaoyang.github.io/post/post-04/</guid>
       <description>&lt;p&gt;近日，想在 Windows 系统下编译 Linux-0.11 内核。 于是就在 VirtualBox 中安装了 &lt;a href=&#34;http://alpinelinux.org/&#34;&gt;Alpine Linux&lt;/a&gt; 3.4 。&lt;br /&gt;
