@@ -573,5 +573,165 @@ echo &amp;quot;\n&amp;quot;.&amp;quot;共&amp;quot;.strlen($decrypted).&amp;quot
 </description>
     </item>
     
+    <item>
+      <title>使用 Github ssh key 部署 Hexo 博客</title>
+      <link>https://zetaoyang.github.io/post/hexo-ssh-key/</link>
+      <pubDate>Sat, 09 Jul 2016 10:32:01 +0800</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/hexo-ssh-key/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;以下方法适合于 Windows 用户，如果是 Linux或者 Mac 用户可以直接用终端的命令进行操作。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;一-列出已存在的-ssh-key&#34;&gt;一、列出已存在的 ssh Key&lt;/h4&gt;
+
+&lt;p&gt;方法1.打开 Git Bash，并且输入：&lt;br /&gt;
+&lt;code&gt;ls ‐al ~/.ssh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;方法2.打开 &lt;a href=&#34;http://cmder.net/&#34;&gt;cmder&lt;/a&gt; ，并且输入：&lt;br /&gt;
+&lt;code&gt;ls ‐al ~/.ssh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;二-生成密钥&#34;&gt;二、生成密钥&lt;/h4&gt;
+
+&lt;p&gt;方法1.用 Git Bash，然后输入：&lt;br /&gt;
+&lt;code&gt;ssh‐keygen ‐t rsa ‐C &amp;quot;your_email@example.com&amp;quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这个命令将会生成一个以 your_email@example.com 为标签的 ssh key，然后 bash 中会显示：&lt;br /&gt;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]&lt;/p&gt;
+
+&lt;p&gt;*注*：此处私钥的名称可以自定义，即可以不使用默认的名称 ‘id_rsa’。
+另外还有一个常识，RSA 加密算法它的&lt;strong&gt;公钥是从私钥提取而来&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;直接回车，然后出现：&lt;br /&gt;
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]&lt;/p&gt;
+
+&lt;p&gt;因为追求操作方便，所以不打算在 deploy 的时候输入这个 passphrase ，所以直接回车两次设为空。然后你会看到：&lt;br /&gt;
+&lt;code&gt;Your identification has been saved in ~/.ssh/id_rsa.
+ Your public key has been saved in ~/.ssh/id_rsa.pub.
+The key fingerprint is:
+01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;三-加入ssh-agent&#34;&gt;三、加入ssh Agent&lt;/h4&gt;
+
+&lt;p&gt;下一步在 Git Bash 或者 cmder 中输入：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ssh‐agent ‐s
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;如果出现类似 Agent pid XXXX 这样的字样，则跳过下一步，否则输入：&lt;br /&gt;
+&lt;code&gt;eval `ssh‐agent ‐s`
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;*注*：此处用 cmder 可能会出现下面的提示&lt;br /&gt;
+Cmder - &amp;lsquo;eval&amp;rsquo; command is not recognized&lt;br /&gt;
+解决方法：使用&lt;code&gt;bash&lt;/code&gt;命令进入
+bash shell。然后&lt;code&gt;eval&lt;/code&gt;就可以使用了。&lt;/p&gt;
+
+&lt;p&gt;直到出现 Agent pid XXXX 这样的提示之后，输入：&lt;br /&gt;
+&lt;code&gt;ssh‐add ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这样，就成功的在本地生成了一个可用的ssh key。&lt;/p&gt;
+
+&lt;h4 id=&#34;四-将ssh-key添加到github中&#34;&gt;四、将ssh Key添加到Github中&lt;/h4&gt;
+
+&lt;p&gt;下面将这个 key 添加到 github 网站。 
+打开&lt;a href=&#34;https://github.com/settings/ssh&#34;&gt;https://github.com/settings/ssh&lt;/a&gt;,  点击 Add ssh Key ，复制 id_rsa.pub(或者是你自己重命名的公钥名称) 中的所有内容到 Key 框中，在 Title 框中输入方便自己记忆的名字（建议输入能让自己明白是哪台电脑的名字，方便以后管理）。 
+当网页显示添加成功后，就已经完成了全部的操作。
+下面进行一些测试，同样是打开 Git Bash 或 cmder，输入： 
+&lt;code&gt;ssh ‐T git@github.com
+&lt;/code&gt;
+ bash 或 cmder 中会显示如下字样：
+&lt;code&gt;The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)?  
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;输入 yes 之后，计算机会自动将 github.com 列入已知的 host，然后会出现如下提示：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Hi username! You&#39;ve successfully authenticated, but GitHub does not
+provide shell access.    
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;如果成功看见，说明你已经配置好了。 
+如果出现任何错误提示，请仔细检查自己的操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;另外&lt;/em&gt; 由于 ssh 配置文件的不匹配，导致的 Permission denied (publickey)及其解决方法：一定要保持新生成的密匙文件的名字同 “ssh_config” 中 “IdentityFile” 字段的值一致即可，其中&lt;code&gt;ssh_config&lt;/code&gt;文件在&lt;code&gt;{Git的安装路径}\etc\ssh\ssh_config&lt;/code&gt;路径。
+例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Host github.com
+	User git
+	StrictHostKeyChecking no
+	IdentityFile ~/.ssh/{你的rsa私钥的名称}
+	IdentitiesOnly yes
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hexo 博客本地站内搜索</title>
+      <link>https://zetaoyang.github.io/post/hexo-localsearch/</link>
+      <pubDate>Fri, 08 Jul 2016 14:49:45 +0800</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/hexo-localsearch/</guid>
+      <description>&lt;p&gt;一、要使用搜索，必须先生成博客索引数据，Hexo  可以通过下面的这个插件生成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install hexo-generator-search --save
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;二、只需要在 Hexo 站点 _config.yml 中添加如下配置即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;search:
+  path: search.xml
+  field: post
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - file path. Default is &lt;code&gt;search.xml&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;field&lt;/strong&gt; - the search scope you want to search, you can chose:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;post&lt;/strong&gt; (Default) - will only covers all the posts of your blog.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;page&lt;/strong&gt; - will only covers all the pages of your blog.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;all&lt;/strong&gt; - will covers all the posts and pages of your blog.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;更多配置说明可到插件页面查看：&lt;a href=&#34;https://github.com/PaicHyperionDev/hexo-generator-search&#34;&gt;hexo-generator-search&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;三、然后在 themes/next/layout/_partials/search 目录下修改 localsearch.swig 文件。&lt;br /&gt;
+  原始文件内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+     var search_path = &amp;quot;&amp;lt;%= config.search.path %&amp;gt;&amp;quot;;
+     if (search_path.length == 0) {
+     	search_path = &amp;quot;search.xml&amp;quot;;
+     }
+     var path = &amp;quot;&amp;lt;%= config.root %&amp;gt;&amp;quot; + search_path;
+     searchFunc(path, &#39;local-search-input&#39;, &#39;local-search-result&#39;);
+ &amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改后的文件内容为:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;popup&amp;quot;&amp;gt;
+ &amp;lt;span class=&amp;quot;search-icon fa fa-search&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;local-search-input&amp;quot; placeholder=&amp;quot;search my blog...&amp;quot;&amp;gt;
+ &amp;lt;div id=&amp;quot;local-search-result&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+ &amp;lt;span class=&amp;quot;popup-btn-close&amp;quot;&amp;gt;close&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其他的地方都不需要改，这样 Hexo 本地站内搜索就完成了。&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
