@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Search on True Me </title>
+    <link>https://zetaoyang.github.io/tags/search/</link>
+    <description>Recent content in Search on True Me </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zetao的小站</copyright>
+    <lastBuildDate>Fri, 08 Jul 2016 14:49:45 +0800</lastBuildDate>
+    <atom:link href="https://zetaoyang.github.io/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hexo 博客本地站内搜索</title>
+      <link>https://zetaoyang.github.io/post/hexo-localsearch/</link>
+      <pubDate>Fri, 08 Jul 2016 14:49:45 +0800</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/hexo-localsearch/</guid>
+      <description>&lt;p&gt;一、要使用搜索，必须先生成博客索引数据，Hexo  可以通过下面的这个插件生成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install hexo-generator-search --save
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;二、只需要在 Hexo 站点 _config.yml 中添加如下配置即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;search:
+  path: search.xml
+  field: post
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - file path. Default is &lt;code&gt;search.xml&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;field&lt;/strong&gt; - the search scope you want to search, you can chose:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;post&lt;/strong&gt; (Default) - will only covers all the posts of your blog.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;page&lt;/strong&gt; - will only covers all the pages of your blog.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;all&lt;/strong&gt; - will covers all the posts and pages of your blog.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;更多配置说明可到插件页面查看：&lt;a href=&#34;https://github.com/PaicHyperionDev/hexo-generator-search&#34;&gt;hexo-generator-search&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;三、然后在 themes/next/layout/_partials/search 目录下修改 localsearch.swig 文件。&lt;br /&gt;
+  原始文件内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+     var search_path = &amp;quot;&amp;lt;%= config.search.path %&amp;gt;&amp;quot;;
+     if (search_path.length == 0) {
+     	search_path = &amp;quot;search.xml&amp;quot;;
+     }
+     var path = &amp;quot;&amp;lt;%= config.root %&amp;gt;&amp;quot; + search_path;
+     searchFunc(path, &#39;local-search-input&#39;, &#39;local-search-result&#39;);
+ &amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改后的文件内容为:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;popup&amp;quot;&amp;gt;
+ &amp;lt;span class=&amp;quot;search-icon fa fa-search&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;local-search-input&amp;quot; placeholder=&amp;quot;search my blog...&amp;quot;&amp;gt;
+ &amp;lt;div id=&amp;quot;local-search-result&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+ &amp;lt;span class=&amp;quot;popup-btn-close&amp;quot;&amp;gt;close&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其他的地方都不需要改，这样 Hexo 本地站内搜索就完成了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel on True Me </title>
+    <link>https://zetaoyang.github.io/tags/kernel/</link>
+    <description>Recent content in Kernel on True Me </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zetao的小站</copyright>
+    <lastBuildDate>Mon, 10 Oct 2016 10:48:19 +0800</lastBuildDate>
+    <atom:link href="https://zetaoyang.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在 Alpine Linux 上编译 Linux0.11 内核</title>
+      <link>https://zetaoyang.github.io/post/post-04/</link>
+      <pubDate>Mon, 10 Oct 2016 10:48:19 +0800</pubDate>
+      
+      <guid>https://zetaoyang.github.io/post/post-04/</guid>
+      <description>&lt;p&gt;近日，想在 Windows 系统下编译 Linux-0.11 内核。 于是就在 VirtualBox 中安装了 &lt;a href=&#34;http://alpinelinux.org/&#34;&gt;Alpine Linux&lt;/a&gt; 3.4 。&lt;br /&gt;
+  其中 VirtualBox 下的网络配置如下：&lt;br /&gt;
+使用2块网卡，第一块设置为&lt;code&gt;host-only&lt;/code&gt;方式：&lt;br /&gt;
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/vbox-network-1.png&#34; alt=&#34;vbox-network-1.png&#34; /&gt;&lt;br /&gt;
+  第二块设置为&lt;code&gt;nat&lt;/code&gt;方式：
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/vbox-network-2.png&#34; alt=&#34;vbox-network-2.png&#34; /&gt;&lt;br /&gt;
+  其中，VirtualBox Host-Only Ethernet Adapter 的配置如下：&lt;br /&gt;
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/vbox-hostonly.png&#34; alt=&#34;vbox-hostonly.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/vbox-hostonly-ipv4.png&#34; alt=&#34;vbox-hostonly-ipv4.png&#34; /&gt;&lt;br /&gt;
+  其中, DNS 服务器地址设置和本地上网的设置相同。   IP 地址是自动生成，也可手动修改。这里我使用的是阿里的公共 DNS 。&lt;br /&gt;
+  然后登陆 Alpine Linux ，查看 MAC 地址是否和在 VirtualBox 中网络设置中的 MAC 地址一样。
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/alpine-network.png&#34; alt=&#34;alpine-network.png&#34; /&gt;&lt;br /&gt;
+  这样主机和虚拟机就可以互 ping ，主机还可通过   ssh 连接虚拟机。例如：&lt;code&gt;ssh root@192.168.56.101&lt;/code&gt;   (ps. 我用的是 &lt;a href=&#34;http://cmder.net/&#34;&gt;cmder&lt;/a&gt; 上的 ssh 工具)。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;推荐： 在Windows上可以用 &lt;a href=&#34;http://www.wm.edu/offices/it/services/software/licensedsoftware/webeditingsftp/sshsecureshell/index.php&#34;&gt;SSH Secure Shell Client&lt;/a&gt; 这个工具替代&lt;code&gt;scp&lt;/code&gt;命令在主机和虚拟机之间传输文件。&lt;br /&gt;
+&lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/SSHSecureShellClient.png&#34; alt=&#34;SSHSecureShellClient.png&#34; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;到这儿，都是些准备工作，接下来才是本文要说的东西。&lt;br /&gt;
+由于 linux 0.11 (原版)内核编译需要 gcc3.4.6  ,而这个 gcc 版本太老了。于是就出现了 linux 0.11-gcc4 这个版本(网上可以搜到),可以用 gcc4.x 去编译。在我的 Linux Mint 18 上，修改了几个错误之后，用自带的 gcc5.4.0 编译成功了（此处为我修改的&lt;a href=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/downloads/linux-gcc5.4.0.zip&#34;&gt;源码&lt;/a&gt;，如果还有错误编译不通过，请参考&lt;a href=&#34;http://www.voidcn.com/blog/hjq842382134/article/p-5955492.html&#34;&gt;这篇文章&lt;/a&gt;），我不甘心，我想用更高的 gcc 版本去完成这件事。在 Gihub 上 search   了一番，发现了这个：&lt;a href=&#34;https://github.com/yuanxinyu/Linux-0.11&#34;&gt;Linux-0.11&lt;/a&gt;，这个修改版我终于在 Alpine Linux 上编译成功了（如果遇到： &amp;ldquo;make: execvp: /tools/build.sh Permission denied .&amp;rdquo; 请修改build.sh的权限。）。
+  最后，用 &lt;a href=&#34;http://bochs.sourceforge.net&#34;&gt;bochs&lt;/a&gt; 模拟启动成功了。&lt;br /&gt;
+  &lt;img src=&#34;https://cdn.rawgit.com/qanno/qanno.github.io/master/images/bochs-linux0.11.png&#34; alt=&#34;bochs-linux0.11.png&#34; /&gt;
+其中 bochs 的 bxrc 文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#BIOS映像文件和VGA BIOS映像文件
+#XXX为Bochs的安装盘
+romimage: file=XXX:\Bochs-2.6.8\BIOS-bochs-latest
+#运行内存
+megs: 64
+vgaromimage: file=XXX:\Bochs-2.6.8\VGABIOS-lgpl-latest
+#这个是启动软盘
+floppya: 1_44=C:\Users\xxxx\Desktop\Image,status=inserted
+ata0-master: type=disk, path=&amp;quot;C:\Users\xxxx\Desktop\linux_0_11-master\hdc-0.11.img&amp;quot;, mode=flat, cylinders=204, heads=16, spt=38
+#确定启动方式
+boot: c
+log: C:\Users\xxxx\Desktop\bochsout.txt
+cpu: count=1, ips=1000000
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
