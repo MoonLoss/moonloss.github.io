@@ -9,3 +9,4 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /img/
 Disallow: /fonts/
+Sitemap: https://zetaoyang.github.io/sitemap.xml
