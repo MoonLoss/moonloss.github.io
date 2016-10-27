@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>True Me</title>
+  <id>https://zetaoyang.github.io</id>
+  <updated>2016-10-27T08:35:15Z</updated>
+  <subtitle>Chase the excellence, success will follow you.</subtitle>
+  <link href="https://zetaoyang.github.io"></link>
+  <author>
+    <name>True Me</name>
+  </author>
+  <entry>
+    <title>通过 Gitlab-cl 将 Hugo blog 自动部署至 GitHub </title>
+    <updated>2016-10-17T09:44:23+08:00</updated>
+    <id>tag:zetaoyang.github.iopost-05.html,2016-10-17:</id>
+    <content type="html">&lt;p&gt;教大家用 Hugo 建个人博客的文章太多了，这次我要介绍的是用 Gitlab-cl 自动部署( 持续集成 ) Hugo blog 到 Github Pages 上&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iopost-05.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>在 Alpine Linux 上编译 Linux0.11 内核</title>
+    <updated>2016-10-10T10:48:19+08:00</updated>
+    <id>tag:zetaoyang.github.iopost-04.html,2016-10-10:</id>
+    <content type="html">&lt;p&gt;近日，想在 Windows 系统下编译 Linux-0.11 内核。 于是就在 VirtualBox 中安装了 Alpine Linux 3.4&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iopost-04.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>生成渐进式 jpeg</title>
+    <updated>2016-10-09T10:43:34+08:00</updated>
+    <id>tag:zetaoyang.github.iopost-02.html,2016-10-09:</id>
+    <content type="html">&lt;p&gt;using python to generate progressive encoding JPEG&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iopost-02.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>用 Github API 上传文件的方法</title>
+    <updated>2016-10-08T11:04:19+08:00</updated>
+    <id>tag:zetaoyang.github.iopost-01.html,2016-10-08:</id>
+    <content type="html">&lt;p&gt;前几天，在 V2EX 看见有人用 Github API 基于python实现了一个图床。于是我决定用 nodejs 也实现一个类似功能。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iopost-01.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>非对称加密( RSA )数据传送的实战</title>
+    <updated>2016-10-06T21:24:17+08:00</updated>
+    <id>tag:zetaoyang.github.iopost-03.html,2016-10-06:</id>
+    <content type="html">&lt;p&gt;建议先了解一下 RSA 原理，再看本文。推荐阮一峰老师的两篇文章&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iopost-03.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>使用 Github ssh key 部署 Hexo 博客</title>
+    <updated>2016-07-09T10:32:01+08:00</updated>
+    <id>tag:zetaoyang.github.iohexo-ssh-key.html,2016-07-09:</id>
+    <content type="html">&lt;p&gt;以下方法适合于 Windows 用户，如果是 Linux或者 Mac 用户可以直接用终端的命令进行操作。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iohexo-ssh-key.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>实现 Hexo next 主题博客本地站内搜索</title>
+    <updated>2016-07-08T14:49:45+08:00</updated>
+    <id>tag:zetaoyang.github.iohexo-localsearch.html,2016-07-08:</id>
+    <content type="html">&lt;p&gt;一、要使用搜索，必须先生成博客索引数据，Hexo  可以通过下面的这个插件生成&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.iohexo-localsearch.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+</feed>
