@@ -1,0 +1,14 @@
+User-agent: *
+Allow: / 
+Allow: /essay
+Disallow: /ico/
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
+Disallow: /fonts/
+Disallow: /bundle/
+Disallow: /essay/ico/
+Disallow: /essay/js/
+Disallow: /essay/css/
+Disallow: /essay/img/
+Disallow: /essay/fonts/
