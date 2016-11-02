@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2016-11-01T14:34:01Z</updated>
+  <updated>2016-11-02T11:15:48Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -13,6 +13,16 @@
     <id>tag:zetaoyang.github.io.,2016-11-01:/post/2016/11/01/rime.html</id>
     <content type="html">&lt;p&gt;『聰明的輸入法懂我心意』，正如 RIME 官网所说得那样。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/11/01/rime.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <title>用 rEFInd 管理多系统引导</title>
+    <updated>2016-11-02T18:43:00+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2016-11-02:/post/2016/10/28/refind.html</id>
+    <content type="html">&lt;p&gt;rEFInd 相当于一个菜单，开机进入这个菜单，选择菜单上的某个系统进入就可以了。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2016/10/28/refind.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
