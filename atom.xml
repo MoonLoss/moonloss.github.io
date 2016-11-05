@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2016-11-04T03:49:50Z</updated>
+  <updated>2016-11-05T12:50:47Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title>Linux 下编写共享库的实践</title>
+    <updated>2016-11-05T20:36:40+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2016-11-05:/post/2016/11/05/linux-shared-object.html</id>
+    <content type="html">&lt;p&gt;尝试了一下，Windows 下 Codeblocks 利用 Mingw 编译器编写动态链接库，结果虽然 dll 是生成了，但过程还是不太满意。因为 dll 是 Windows 下才用到的，似乎用 GNU 的编译器不太合适，最终还是改用 VS2015 (虽然它很‘臃肿’)。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2016/11/05/linux-shared-object.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title>谈谈 RIME </title>
     <updated>2016-11-01T22:32:00+08:00</updated>
