@@ -145,7 +145,7 @@ target_link_libraries(hideso /home/yang/Desktop/hideso/libhello.so)
 </code></pre><p>编译，也可以在项目的根目录下执行<code>g++ -o main main.cpp ./libhello.so</code>。</p><p>在执行隐式链接的程序之前，需要设置 LD_LIBRARY_PATH 环境变量，或者把前面生成的 libhello.so 复制到系统路径下，否则报错：</p><pre><code>error while loading shared libraries: libhello.so: cannot open shared object file: No such file or directory
 </code></pre><p>运行可在项目根目录下执行：</p><pre><code>export LD_LIBRARY_PATH=.
 ./main
-</code></pre><p>还可直接用<code>ldd</code>命令查看其所隐式调用的库。<br>对于C语言编译的库，C++ 调用时需要这样做(保证C/C++ 兼容性)：</p><pre><code>#include &lt;iostream&gt;
+</code></pre><p>还可直接用<code>ldd</code>命令查看其所隐式调用的库。<br>对于C语言编译的库，C++ 调用时需要这样做(保证C/C++ 兼容性，注意<code>cplusplus</code>前面是两个&rsquo;_&lsquo;)：</p><pre><code>#include &lt;iostream&gt;
 using namespace std;
 
 #ifdef __cplusplus
