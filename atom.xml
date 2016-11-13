@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2016-11-13T11:21:17Z</updated>
+  <updated>2016-11-13T14:08:06Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title> Debian 上搭建 Caddy Server </title>
+    <updated>2016-11-13T22:06:00+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2016-11-13:/post/2016/11/13/caddy-server.html</id>
+    <content type="html">&lt;p&gt;昨天在自己的 VPS (运行 Debian 8 64bits )上，使用  Caddy 作为 Web 服务器。现将配置流程记录一下。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2016/11/13/caddy-server.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title>Linux 下编写共享库的实践</title>
     <updated>2016-11-13T19:18:20+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:zetaoyang.github.io.,2016-07-09:/post/2016/07/09/hexo-ssh-key.html</id>
     <content type="html">&lt;p&gt;以下方法适合于 Windows 用户，如果是 Linux或者 Mac 用户可以直接用终端的命令进行操作。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/07/09/hexo-ssh-key.html"></link>
-    <author>
-      <name>Zetao Yang</name>
-    </author>
-  </entry>
-  <entry>
-    <title>实现 Hexo next 主题博客本地站内搜索</title>
-    <updated>2016-07-08T14:49:45+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-07-08:/post/2016/07/08/hexo-localsearch.html</id>
-    <content type="html">&lt;p&gt;一、要使用搜索，必须先生成博客索引数据，Hexo  可以通过下面的这个插件生成&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/07/08/hexo-localsearch.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
