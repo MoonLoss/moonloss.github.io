@@ -1,0 +1,1 @@
+function onVisibilityChange(){document.hidden?(document.title="(/≧▽≦/)不要离开我！",clearTimeout(titleTime)):(document.title="True Me"+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2e3))}var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",onVisibilityChange);
