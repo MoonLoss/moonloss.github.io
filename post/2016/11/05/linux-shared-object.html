@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1,minimum-scale=1,maximum-scale=1"><link rel="shortcut icon" href="/favicon.png"><link rel="apple-itouch-icon" href="/favicon.png"><style>img{max-width:100%}</style><script type="text/javascript">function onVisibilityChange(){document.hidden?(document.title="(/≧▽≦/)不要离开我！",clearTimeout(titleTime)):(document.title="True Me"+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2e3))}var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",onVisibilityChange)</script><style type="text/css">.box{display:none;position:fixed;right:10px;bottom:34px;height:30px;width:50px;text-align:center;padding-top:20px;background-color:#b7b7b7;opacity:.58;border-radius:25px;overflow:hidden;cursor:pointer}.box:hover:before{top:50%}.box:hover .box-in{visibility:hidden}.box:before{position:absolute;top:-50%;left:50%;transform:translate(-50%,-50%);width:40px;color:peru;font-weight:700}.box-in{visibility:visible;display:inline-block;height:20px;width:20px;border:3px solid #000;border-color:#fff transparent transparent #fff;transform:rotate(45deg)}</style><link rel="stylesheet" href="/bundle/index.css"><script type="text/javascript">var timeSinceLang={year:"年前",month:"个月前",day:"天前",hour:"小时前",minute:"分钟前",second:"秒前"},root=""</script><meta name="keywords" content="libraries,cmake,linux,"><meta name="description" content="Linux 下编写及调用共享库的实践"><title>Linux 下编写及调用共享库的实践</title></head><body><article class="container"><header class="header-wrap"><a class="index" href="/"><img class="logo" src="/images/avatar.png"> True Me</a><ul class="menu"><li class="menu-item"><a href="/archive.html">归档</a></li><li class="menu-item"><a href="/tag.html">标签</a></li><li class="menu-item"><a href="/blogroll.html">友链</a></li><li class="menu-item"><a href="/about.me.html">关于</a></li><li class="menu-item"><a href="/atom.xml"></a></li></ul></header><article class="main article"><h1 class="title">Linux 下编写及调用共享库的实践</h1><section class="info"><span class="avatar" style="background-image:url(/images/avatar.png)"></span> <a class="name" href="/about.me.html">Zetao Yang</a> <span class="date" data-time="1479356611"><span class="from"></span> 更新</span> <span class="tags"><a class="tag" href="/tag/libraries/index.html">libraries</a><a class="tag" href="/tag/cmake/index.html">cmake</a><a class="tag" href="/tag/linux/index.html">linux</a></span></section><article class="content"><p>尝试了一下，Windows 下 Codeblocks 利用 Mingw 编译器编写动态链接库，结果虽然 dll 是生成了，但过程还是不太满意。因为 dll 是 Windows 下才用到的，似乎用 GNU 的编译器不太合适，最终还是改用 VS2015 (虽然它很‘臃肿’)。然后，我就尝试在 Linux 上编写<code>.so</code>(shared object, 共享库。和 dll 类似)文件。<br>在 Linux 上，我尝试了 JetBrains 家的 Clion ，它的代码提示，确实比 Codeblock 好，这点值得肯定。而且在 Linux 上的构建速度比在 Windows 上快(相同硬件条件下) 。虽然 Clion 是收费软件，但是有学生优惠。我用 edu 邮箱申请一年期的免费使用权，到期之后还可以用 edu 邮箱再次验证使用。在能力范围之内，能不用破解软件，就不用破解软件。要<strong>尊重同行的劳动</strong>。</p><p>回到正题，静态库、动态库在不同系统下的对应关系：<br>linux： <code>.a</code> (Archive libraries) 和 <code>.so</code>(Shared object) ;<br>Windows： <code>.lib</code> 和 <code>.dll</code>(Dynamic-link library)</p><h3>先编写一个库试试</h3><p>首先用 Clion 新建一个项目 &ldquo;hello&rdquo;，main.cpp 的内容为：</p><pre><code>#include &lt;iostream&gt;
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1,minimum-scale=1,maximum-scale=1"><link rel="shortcut icon" href="/favicon.png"><link rel="apple-itouch-icon" href="/favicon.png"><style>img{max-width:100%}</style><script type="text/javascript">function onVisibilityChange(){document.hidden?(document.title="(/≧▽≦/)不要离开我！",clearTimeout(titleTime)):(document.title="True Me"+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2e3))}var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",onVisibilityChange)</script><style type="text/css">.box{display:none;position:fixed;right:10px;bottom:34px;height:30px;width:50px;text-align:center;padding-top:20px;background-color:#b7b7b7;opacity:.58;border-radius:25px;overflow:hidden;cursor:pointer}.box:hover:before{top:50%}.box:hover .box-in{visibility:hidden}.box:before{position:absolute;top:-50%;left:50%;transform:translate(-50%,-50%);width:40px;color:peru;font-weight:700}.box-in{visibility:visible;display:inline-block;height:20px;width:20px;border:3px solid #000;border-color:#fff transparent transparent #fff;transform:rotate(45deg)}</style><link rel="stylesheet" href="/bundle/index.css"><script type="text/javascript">var timeSinceLang={year:"年前",month:"个月前",day:"天前",hour:"小时前",minute:"分钟前",second:"秒前"},root=""</script><meta name="keywords" content="libraries,cmake,linux,"><meta name="description" content="Linux 下用 Clion 编写及调用共享库的实践"><title>Linux 下用 Clion 编写及调用共享库的实践</title></head><body><article class="container"><header class="header-wrap"><a class="index" href="/"><img class="logo" src="/images/avatar.png"> True Me</a><ul class="menu"><li class="menu-item"><a href="/archive.html">归档</a></li><li class="menu-item"><a href="/tag.html">标签</a></li><li class="menu-item"><a href="/blogroll.html">友链</a></li><li class="menu-item"><a href="/about.me.html">关于</a></li><li class="menu-item"><a href="/atom.xml"></a></li></ul></header><article class="main article"><h1 class="title">Linux 下用 Clion 编写及调用共享库的实践</h1><section class="info"><span class="avatar" style="background-image:url(/images/avatar.png)"></span> <a class="name" href="/about.me.html">Zetao Yang</a> <span class="date" data-time="1479457353"><span class="from"></span> 更新</span> <span class="tags"><a class="tag" href="/tag/libraries/index.html">libraries</a><a class="tag" href="/tag/cmake/index.html">cmake</a><a class="tag" href="/tag/linux/index.html">linux</a></span></section><article class="content"><p>尝试了一下，Windows 下 Codeblocks 利用 Mingw 编译器编写动态链接库，结果虽然 dll 是生成了，但过程还是不太满意。因为 dll 是 Windows 下才用到的，似乎用 GNU 的编译器不太合适，最终还是改用 VS2015 (虽然它很‘臃肿’)。然后，我就尝试在 Linux 上编写<code>.so</code>(shared object, 共享库。和 dll 类似)文件。<br>在 Linux 上，我尝试了 JetBrains 家的 Clion ，它的代码提示，确实比 Codeblock 好，这点值得肯定。而且在 Linux 上的构建速度比在 Windows 上快(相同硬件条件下) 。虽然 Clion 是收费软件，但是有学生优惠。我用 edu 邮箱申请一年期的免费使用权，到期之后还可以用 edu 邮箱再次验证使用。在能力范围之内，能不用破解软件，就不用破解软件。要<strong>尊重同行的劳动</strong>。</p><p>回到正题，静态库、动态库在不同系统下的对应关系：<br>linux： <code>.a</code> (Archive libraries) 和 <code>.so</code>(Shared object) ;<br>Windows： <code>.lib</code> 和 <code>.dll</code>(Dynamic-link library)</p><h3>先编写一个库试试</h3><p>首先用 Clion 新建一个项目 &ldquo;hello&rdquo;，main.cpp 的内容为：</p><pre><code class="language-c++">#include &lt;iostream&gt;
 using namespace std;
 
 void hi()
@@ -9,7 +9,7 @@ int add(int a,int b)
 {
     return a + b;
 }
-</code></pre><p>CMakeLists.txt 的内容：</p><pre><code>cmake_minimum_required(VERSION 3.6)
+</code></pre><p>CMakeLists.txt (学名：组态档)的内容：</p><pre><code>cmake_minimum_required(VERSION 3.6)
 project(hello)
 
 set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -std=c++11&quot;)
@@ -57,7 +57,7 @@ add_library(hell ${SOURCE_FILES})
 00000000000009ed r std::piecewise_construct
 0000000000201041 b std::__ioinit
                  U std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::operator&lt;&lt; &lt;std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;, char const*)@@GLIBCXX_3.4
-</code></pre><h3>动态库显式调用(运行时装入)</h3><p>新建一个项目 &ldquo;openso&rdquo;，以下是<code>main.cpp</code>的内容：</p><pre><code>#include &lt;iostream&gt;
+</code></pre><h3>动态库显式调用(运行时装入)</h3><p>新建一个项目 &ldquo;openso&rdquo;，以下是<code>main.cpp</code>的内容：</p><pre><code class="language-c++">#include &lt;iostream&gt;
 #include &quot;dlfcn.h&quot;//显式调用的头文件
 
 using namespace std;
@@ -121,7 +121,16 @@ set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -std=c++11&quot;)
 set(SOURCE_FILES main.cpp)
 add_executable(openso ${SOURCE_FILES})
 target_link_libraries(openso ${CMAKE_DL_LIBS})
-</code></pre><p>编译，也可以在项目的根目录下执行<code>g++ -o main main.cpp -ldl</code>。</p><h3>动态库隐式调用(编译时装入)</h3><p>新建一个项目 &ldquo;hideso&rdquo;，以下是<code>main.cpp</code>的内容：</p><pre><code>#include &lt;iostream&gt;
+</code></pre><p>编译，也可以在项目的根目录下执行<code>g++ -o main main.cpp -ldl</code>。</p><p>程序运行结果如下：</p><pre><code>C++ dlopen
+Opening libhello.so...
+Loading symbol hi...
+Calling hi()...
+Hello,nihao
+Loading symbol add...
+Calling the add()...
+5 is the result
+Closing library...
+</code></pre><h3>动态库隐式调用(编译时装入)</h3><p>新建一个项目 &ldquo;hideso&rdquo;，以下是<code>main.cpp</code>的内容：</p><pre><code class="language-c++">#include &lt;iostream&gt;
 using namespace std;
 
 void hi();
@@ -145,15 +154,15 @@ target_link_libraries(hideso /home/yang/Desktop/hideso/libhello.so)
 </code></pre><p>编译，也可以在项目的根目录下执行<code>g++ -o main main.cpp ./libhello.so</code>。</p><p>在执行隐式链接的程序之前，需要设置 LD_LIBRARY_PATH 环境变量，或者把前面生成的 libhello.so 复制到系统路径下，否则报错：</p><pre><code>error while loading shared libraries: libhello.so: cannot open shared object file: No such file or directory
 </code></pre><p>运行可在项目根目录下执行：</p><pre><code>export LD_LIBRARY_PATH=.
 ./main
-</code></pre><p>还可直接用<code>ldd</code>命令查看其所隐式调用的库。<br>对于C语言编译的库，C++ 调用时需要这样做(保证C/C++ 兼容性，注意<code>cplusplus</code>前面是两个&rsquo;_&lsquo;)：</p><pre><code>#include &lt;iostream&gt;
+</code></pre><p>还可直接用<code>ldd</code>命令查看其所隐式调用的库。</p><p>对于 C 语言编译的库，C++ 调用时需要这么做(保证C/C++ 兼容性，注意<code>cplusplus</code>前面是两个&rsquo;_&lsquo;)：</p><pre><code class="language-c++">#include &lt;iostream&gt;
 using namespace std;
 
 #ifdef __cplusplus
 extern &quot;C&quot;
 {
 #endif
-void hi();
-int add(int,int);
+	void hi();
+	int add(int,int);
 #ifdef __cplusplus
 }
 #endif
@@ -165,4 +174,45 @@ int main(int argc,char *argv[])
     cout &lt;&lt; add(12,13) &lt;&lt; endl;
     return 0;
 }
-</code></pre><p>当然了，C++ 编写的库，C 是无法调用的。</p><h3>CMake 相关:</h3><blockquote><p><a href="https://cmake.org/Wiki/CMake">CMake Wiki</a><br><a href="http://elloop.github.io/tools/2016-04-10/learning-cmake-2-commands">CMake 常用命令和变量</a><br><a href="http://linghutf.github.io/2016/06/16/cmake/">CMake使用进阶</a><br><a href="http://reyoung.me/post/cmake_talk_1/">CMake 简要教程&ndash;相关工具对比</a></p></blockquote><p>还可以看看《程序员的自我修养——链接、装载与库》这本书。</p></article><section class="author"><div class="avatar" style="background-image:url(/images/avatar.png)"></div><a class="name" href="/about.me.html">Zetao Yang</a><div class="intro">Thoughts and ideas.</div></section><section class="recommend"><section class="nav prev more"><div class="head">上篇文章</div><a class="link" href="/./post/2016/11/13/caddy-server.html">Debian 上搭建 Caddy Server</a></section><section class="nav next more"><div class="head">下篇文章</div><a class="link" href="/./post/2016/11/01/rime.html">谈谈 RIME</a></section></section><section id="disqus_thread"></section><script type="text/javascript">!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//zetao.disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script></article></article><script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-85037972-1","auto"),ga("send","pageview")</script><footer class="footer"><span class="copyright">True Me ©<script type="text/javascript">document.write((new Date).getFullYear())</script>- Zetao的小站 </span><span class="publish">本站使用<a href="http://creativecommons.org/licenses/by/4.0/deed.zh">「署名 4.0 国际」</a>创作共享协议</span></footer><div id="to-top" class="box"><div class="box-in"><div><div><script>window.onscroll=function(){var o=document.documentElement.scrollTop||document.body.scrollTop,e=document.documentElement.clientHeight||document.body.clientHeight;a.style.display=o>e?"block":"none"};var a=document.getElementById("to-top");a.onclick=function(){var o=500,e=10,n=document.documentElement.scrollTop||document.body.scrollTop,t=n/o*e,c=window.setInterval(function(){var o=document.documentElement.scrollTop||document.body.scrollTop;0==o&&window.clearInterval(c),document.documentElement.scrollTop=o-t,document.body.scrollTop=o-t},e);return!1}</script><script src="/bundle/index.js"></script></div></div></div></div></body></html>
+</code></pre><p>当然了，C++ 编写的库，C 是无法直接调用的。那如果 C 想调用 C++的库， 应该怎么做呢？请接着往下看。</p><h3>C 调用 C++ 库</h3><p>C 调用 C++ 的库，一般不能直接调用，需要将 C++ 库转换成 C 接口(也就是要用<code>extern &quot;C&quot;</code>)输出，才可以用 C 来调用，这里举个例子(比如 C++ 中的“类”)：</p><pre><code class="language-c++">#include &lt;iostream&gt;
+
+#ifdef __cplusplus
+extern &quot;C&quot;
+{
+#endif
+    int here();
+#ifdef __cplusplus
+}
+#endif
+
+using namespace std;
+
+class Hi {
+    public:
+    int hello() {
+        cout &lt;&lt; &quot;here() is called&quot; &lt;&lt; endl;
+    }
+};
+
+int here() {
+    Hi hh;
+    hh.hello();
+    return 0;
+}
+
+</code></pre><p>CMakeLists.txt 内容不再赘述。</p><p>接下来只简单说一下它的显示调用：</p><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;dlfcn.h&gt;
+
+int main()
+{
+    int (*dlfunc)();
+    void *handle;  //定义一个句柄
+    handle = dlopen(&quot;./libcppso.so&quot;, RTLD_LAZY);//获得库句柄
+    dlfunc = dlsym(handle, &quot;here&quot;); //获得函数入口
+    (*dlfunc)();
+    dlclose(handle); 
+
+    return 0;
+}
+</code></pre><p>运行输出如下：</p><pre><code>here() is called
+</code></pre><h3>CMake 相关:</h3><blockquote><p><a href="https://cmake.org/Wiki/CMake">CMake Wiki</a><br><a href="http://elloop.github.io/tools/2016-04-10/learning-cmake-2-commands">CMake 常用命令和变量</a><br><a href="http://linghutf.github.io/2016/06/16/cmake/">CMake使用进阶</a><br><a href="http://reyoung.me/post/cmake_talk_1/">CMake 简要教程&ndash;相关工具对比</a></p></blockquote><h3>Make 相关</h3><p>Makefile + make 为 Unix-like 环境下的项目管理工具(抽象程度低)。对于如何使用 Makefile 编译动态库和静态库，可参考这篇文章：<a href="http://blog.csdn.net/shaoxiaohu1/article/details/46943417">linux编译动态库和静态库的makefile示例</a> 。需要说明一点：<strong>cmake 也是根据 CMakeLists.txt 文件去生成 Makefile 的</strong> (可以跨平台生成对应平台能用的 Makefile) 。而且 cmake 是抽象层次更高的项目管理工具。当你需要编译一个大项目，而大项目各文件的依赖关系复杂，Makefile 并不好写，这时使用 cmake 则很方便。</p><h3>链接、装载与库相关</h3><p>可以看看《程序员的自我修养——链接、装载与库》这本书。</p></article><section class="author"><div class="avatar" style="background-image:url(/images/avatar.png)"></div><a class="name" href="/about.me.html">Zetao Yang</a><div class="intro">Thoughts and ideas.</div></section><section class="recommend"><section class="nav prev more"><div class="head">上篇文章</div><a class="link" href="/./post/2016/11/13/caddy-server.html">Debian 上搭建 Caddy Server</a></section><section class="nav next more"><div class="head">下篇文章</div><a class="link" href="/./post/2016/11/01/rime.html">谈谈 RIME</a></section></section><section id="disqus_thread"></section><script type="text/javascript">!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//zetao.disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script></article></article><script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-85037972-1","auto"),ga("send","pageview")</script><footer class="footer"><span class="copyright">True Me ©<script type="text/javascript">document.write((new Date).getFullYear())</script>- Zetao的小站 </span><span class="publish">本站使用<a href="http://creativecommons.org/licenses/by/4.0/deed.zh">「署名 4.0 国际」</a>创作共享协议</span></footer><div id="to-top" class="box"><div class="box-in"><div><div><script>window.onscroll=function(){var o=document.documentElement.scrollTop||document.body.scrollTop,e=document.documentElement.clientHeight||document.body.clientHeight;a.style.display=o>e?"block":"none"};var a=document.getElementById("to-top");a.onclick=function(){var o=500,e=10,n=document.documentElement.scrollTop||document.body.scrollTop,t=n/o*e,c=window.setInterval(function(){var o=document.documentElement.scrollTop||document.body.scrollTop;0==o&&window.clearInterval(c),document.documentElement.scrollTop=o-t,document.body.scrollTop=o-t},e);return!1}</script><script src="/bundle/index.js"></script></div></div></div></div></body></html>
