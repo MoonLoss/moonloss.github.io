@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2016-12-24T15:40:27Z</updated>
+  <updated>2016-12-31T00:31:18Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title> 2016 年，我的收获与成长 </title>
+    <updated>2016-12-31T08:28:23+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2016-12-31:/post/2016/12/30/2016-summary.html</id>
+    <content type="html">&lt;p&gt;2016 年即将结束，马上迎来 2017。我在 Github 上的独立博客将近有半年了。最初博客由 Hexo 驱动，后来迁移到了 Hugo 阵营，再后来用上了「紙小墨」，总之，就是不断地折腾。十月份给博客加上了访客统计。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2016/12/30/2016-summary.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title>[译] 给予设计师灵感的 11 个顶尖网站</title>
     <updated>2016-12-24T22:36:41+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:zetaoyang.github.io.,2016-10-09:/post/2016/10/09/progressive-encoding-jpeg.html</id>
     <content type="html">&lt;p&gt;using python to generate progressive encoding JPEG&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/10/09/progressive-encoding-jpeg.html"></link>
-    <author>
-      <name>Zetao Yang</name>
-    </author>
-  </entry>
-  <entry>
-    <title>用 Github API 上传文件的方法</title>
-    <updated>2016-10-08T11:04:19+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-10-08:/post/2016/10/08/github-api.html</id>
-    <content type="html">&lt;p&gt;前几天，在 V2EX 看见有人用 Github API 基于python实现了一个图床。于是我决定用 nodejs 也实现一个类似功能。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/10/08/github-api.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
