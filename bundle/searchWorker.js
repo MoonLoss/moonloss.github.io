@@ -1,1 +1,74 @@
-function load(t,e){var a;if("undefined"!=typeof XMLHttpRequest)a=new XMLHttpRequest;else for(var o=["MSXML2.XmlHttp.5.0","MSXML2.XmlHttp.4.0","MSXML2.XmlHttp.3.0","MSXML2.XmlHttp.2.0","Microsoft.XmlHttp"],r=0,s=o.length;r<s;r++)try{a=new ActiveXObject(o[r]);break}catch(t){}a.onreadystatechange=function(){a.readyState<4||200===a.status&&4===a.readyState&&e(a)},a.open("GET",t,!0),a.send("")}var data,lastKeyword,search=function(t){for(var e=[],a=t.toLowerCase().replace(/ /g," "),o=a.split(" "),r=0;r<data.length;r++){for(var s=data[r],n=s.title.toLowerCase(),d=s.preview.toLowerCase(),l=s.content.toLowerCase(),i=!0,c=0;c<o.length;c++){var f=o[c];if(n.indexOf(f)==-1&&d.indexOf(f)==-1&&l.indexOf(f)==-1){i=!1;break}}i&&e.push(s)}postMessage({keyword:a,keywords:o,results:e})};onmessage=function(t){var e=t.data.action;"start"==e?load(t.data.root+"/index.json",function(t){data=JSON.parse(t.responseText.toLowerCase()),lastKeyword&&search(lastKeyword)}):data?search(t.data.keyword):lastKeyword=t.data.keyword};
+function load(url, callback) {
+	var xhr
+	if (typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest()
+	else {
+		var versions = ["MSXML2.XmlHttp.5.0",
+		 	"MSXML2.XmlHttp.4.0",
+		 	"MSXML2.XmlHttp.3.0",
+		 	"MSXML2.XmlHttp.2.0",
+		 	"Microsoft.XmlHttp"]
+
+		for(var i = 0, len = versions.length; i < len; i++) {
+  		try {
+  			xhr = new ActiveXObject(versions[i])
+  			break
+  		} catch(e) {}
+		}
+	}
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState < 4) return
+		if(xhr.status !== 200) return
+		if(xhr.readyState === 4) callback(xhr)
+	}
+	xhr.open('GET', url, true)
+	xhr.send('')
+}
+
+var data, lastKeyword
+
+var search = function(keyword) {
+  var results = []
+  var keywordStr = keyword.toLowerCase().replace(/ /g, ' ')
+  var keywords = keywordStr.split(' ')
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i]
+    var title = item.title.toLowerCase()
+    var preview = item.preview.toLowerCase()
+    var content = item.content.toLowerCase()
+    var isMatch = true
+    for (var j = 0; j < keywords.length; j++) {
+      var key = keywords[j]
+      if (title.indexOf(key) == -1 &&
+        preview.indexOf(key) == -1 &&
+        content.indexOf(key) == -1) {
+        isMatch = false
+        break
+      }
+    }
+    if (isMatch) results.push(item)
+  }
+  postMessage({
+    keyword: keywordStr,
+    keywords: keywords,
+    results: results
+  })
+}
+
+
+onmessage = function(event) {
+  var action = event.data.action
+  if (action == 'start') {
+    load(event.data.root + '/index.json', function(xhr) {
+      data = JSON.parse(xhr.responseText.toLowerCase())
+      if (lastKeyword) {
+        search(lastKeyword)
+      }
+    })
+  } else {
+    if (data) {
+      search(event.data.keyword)
+    } else {
+      lastKeyword = event.data.keyword
+    }
+  }
+}
