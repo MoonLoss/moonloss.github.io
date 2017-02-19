@@ -13,7 +13,21 @@ const offlineResources = [
   '/tag.html',
   '/bundle/index.css',
   '/bundle/index.js',
-  '/post/2016/*/*/*.html',
+  '/post/2016/07/08/hexo-localsearch.html',
+  '/post/2016/07/09/hexo-ssh-key.html',
+  '/post/2016/10/01/t-debugger-html.html',
+  '/post/2016/10/06/rsa.html',
+  '/post/2016/10/08/github-api.html',
+  '/post/2016/10/09/progressive-encoding-jpeg.html',
+  '/post/2016/10/10/compile-linux-kernal.html',
+  '/post/2016/10/17/gitlab-cl.html',
+  '/post/2016/10/28/refind.html',
+  '/post/2016/11/01/rime.html',
+  '/post/2016/11/05/linux-shared-object.html',
+  '/post/2016/11/13/caddy-server.html',
+  '/post/2016/12/04/wireshark-npcap.html',
+  '/post/2016/12/24/t-top-inspiration-websites-for-designers.html',
+  '/post/2016/12/30/2016-summary.html',
 ];
 
 const ignoreFetch = [
