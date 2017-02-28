@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-02-27T10:40:15Z</updated>
+  <updated>2017-02-28T10:28:11Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title>给你的独立博客加上夜间模式以及 Service Worker</title>
+    <updated>2017-02-27T20:33:23+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-02-27:/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html</id>
+    <content type="html">&lt;p&gt;现在很多 APP 都有夜间模式，看到简书网站改版后也添加了夜间模式切换，所以就在自己的博客上实践。至于 Service Worker 是什么本文不再赘述，只是将实现过程记录下来，供各位看官参考。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title> 2016 年，我的收获与成长 </title>
     <updated>2016-12-31T08:28:23+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:zetaoyang.github.io.,2016-10-10:/post/2016/10/10/compile-linux-kernal.html</id>
     <content type="html">&lt;p&gt;近日，想在 Windows 系统下编译 Linux-0.11 内核。 于是就在 VirtualBox 中安装了 Alpine Linux 3.4&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/10/10/compile-linux-kernal.html"></link>
-    <author>
-      <name>Zetao Yang</name>
-    </author>
-  </entry>
-  <entry>
-    <title>生成渐进式 jpeg</title>
-    <updated>2016-10-09T10:43:34+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-10-09:/post/2016/10/09/progressive-encoding-jpeg.html</id>
-    <content type="html">&lt;p&gt;using python to generate progressive encoding JPEG&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/10/09/progressive-encoding-jpeg.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
