@@ -28,6 +28,7 @@ const offlineResources = [
   '/post/2016/12/04/wireshark-npcap.html',
   '/post/2016/12/24/t-top-inspiration-websites-for-designers.html',
   '/post/2016/12/30/2016-summary.html',
+  '/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html',
 ];
 
 const ignoreFetch = [
