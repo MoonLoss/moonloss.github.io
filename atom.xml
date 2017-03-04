@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-03-01T03:14:30Z</updated>
+  <updated>2017-03-04T11:30:21Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -9,8 +9,8 @@
   </author>
   <entry>
     <title>给你的独立博客加上夜间模式以及 Service Worker</title>
-    <updated>2017-02-27T20:33:23+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-02-27:/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html</id>
+    <updated>2017-03-04T19:28:23+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-03-04:/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html</id>
     <content type="html">&lt;p&gt;现在很多 APP 都有夜间模式，看到简书网站改版后也添加了夜间模式切换，所以就在自己的博客上实践。至于 Service Worker 是什么本文不再赘述，只是将实现过程记录下来，供各位看官参考。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html"></link>
     <author>
