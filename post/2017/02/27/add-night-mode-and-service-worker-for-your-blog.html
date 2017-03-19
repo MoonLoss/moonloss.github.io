@@ -22,7 +22,7 @@
     
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>将上面的代码拷贝下来，保存到 HTML 文件中，看看效果。</p><h3>客户端存储数据</h3><p>仅仅按上面那样做是不够的，因为当你刷新标签页后，一切效果皆都消失，所以客户端(在这里也就是浏览器)还需要存储转换状态。</p><p>HTML5 提供了两种在客户端存储数据的方法： localStorage —— 没有时间限制的数据存储，需手动清除 sessionStorage—— 针对session 的数据存储，标签页关闭或者浏览器关闭后自动清除<br>(以上两种方法最大能存储 5MB 数据) 其他具体相关细节可查阅 <a href="https://developer.mozilla.org/">MDN</a>。</p><p>然后就只是修改上面的 Javascript 代码：</p><pre><code>document.body.style.backgroundColor = sessionStorage.getItem('bg');
+</code></pre><p>将上面的代码拷贝下来，保存到 HTML 文件中，看看效果。</p><h3>客户端存储数据</h3><p>仅仅按上面那样做是不够的，因为当你刷新标签页后，一切效果皆都消失，所以客户端(在这里也就是浏览器)还需要存储转换状态。</p><p>HTML5 提供了两种在客户端存储数据的方法： localStorage —— 没有时间限制的数据存储，需手动清除 sessionStorage—— 针对 session 的数据存储，标签页关闭或者浏览器关闭后自动清除<br>(以上两种方法最大能存储 5MB 数据) 其他具体相关细节可查阅 <a href="https://developer.mozilla.org/">MDN</a>。</p><p>然后就只是修改上面的 Javascript 代码：</p><pre><code>document.body.style.backgroundColor = sessionStorage.getItem('bg');
 document.body.style.color = sessionStorage.getItem('md');
 
 function darker() {
