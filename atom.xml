@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-03-20T03:15:25Z</updated>
+  <updated>2017-05-04T06:23:25Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -98,11 +98,11 @@
     </author>
   </entry>
   <entry>
-    <title>通过 Gitlab-cl 将 Hugo blog 自动部署至 GitHub </title>
-    <updated>2016-10-17T09:44:23+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-10-17:/post/2016/10/17/gitlab-cl.html</id>
-    <content type="html">&lt;p&gt;教大家用 Hugo 建个人博客的文章太多了，这次我要介绍的是用 Gitlab-cl 自动部署( 持续集成 ) Hugo blog 到 Github Pages 上&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/10/17/gitlab-cl.html"></link>
+    <title>通过 Gitlab-ci 将 Hugo blog 自动部署至 GitHub </title>
+    <updated>2017-05-04T14:19:40+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-05-04:/post/2016/10/17/gitlab-ci.html</id>
+    <content type="html">&lt;p&gt;教大家用 Hugo 建个人博客的文章太多了，这次我要介绍的是用 Gitlab-ci 自动部署( 持续集成 ) Hugo blog 到 Github Pages 上&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2016/10/17/gitlab-ci.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
