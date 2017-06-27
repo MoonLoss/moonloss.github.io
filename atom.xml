@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-06-20T10:59:49Z</updated>
+  <updated>2017-06-27T01:56:19Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title>初探 PhantomJS + Selenium 模拟浏览器行为</title>
+    <updated>2017-06-26T22:43:56+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-06-26:/post/2017/04/28/phantomjs.html</id>
+    <content type="html">&lt;p&gt;首先，简单介绍一下 PhantomJS ，它是一个基于 WebKit 的服务器端 JavaScript API ，无需浏览器的支持即可实现对 Web 的支持，且原生支持各种 Web 标准。适合使用在 &lt;em&gt;Web 测试&lt;/em&gt; ，当然也可以应对反爬虫。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2017/04/28/phantomjs.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title>Geohash 编码解码 C 语言实现</title>
     <updated>2017-03-20T11:03:42+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:zetaoyang.github.io.,2016-11-02:/post/2016/10/28/refind.html</id>
     <content type="html">&lt;p&gt;rEFInd 相当于一个菜单，开机进入这个菜单，选择菜单上的某个系统进入就可以了。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/10/28/refind.html"></link>
-    <author>
-      <name>Zetao Yang</name>
-    </author>
-  </entry>
-  <entry>
-    <title>通过 Gitlab-ci 将 Hugo blog 自动部署至 GitHub </title>
-    <updated>2017-05-04T14:19:40+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-05-04:/post/2016/10/17/gitlab-ci.html</id>
-    <content type="html">&lt;p&gt;教大家用 Hugo 建个人博客的文章太多了，这次我要介绍的是用 Gitlab-ci 自动部署( 持续集成 ) Hugo blog 到 Github Pages 上&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/10/17/gitlab-ci.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>

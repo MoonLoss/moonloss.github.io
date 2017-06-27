@@ -1,0 +1,214 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1,minimum-scale=1,maximum-scale=1"><link rel="shortcut icon" href="/favicon.png"><link rel="apple-itouch-icon" href="/favicon.png"><style>img{max-width:100%}</style><script type="text/javascript">function onVisibilityChange(){document.hidden?(document.title="(/≧▽≦/)不要离开我！",clearTimeout(titleTime)):(document.title="True Me"+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2e3))}var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",onVisibilityChange)</script><script type="text/javascript">"serviceWorker"in navigator&&navigator.serviceWorker.register("/serviceworker.js").then(function(e){console.log("[Service Worker] Registered，rage is",e.scope)})["catch"](function(e){console.log("[Service Worker] Register failed:",e)})</script><style type="text/css">.box{display:none;position:fixed;right:10px;bottom:34px;height:30px;width:50px;text-align:center;padding-top:20px;background-color:#b7b7b7;opacity:.58;border-radius:25px;overflow:hidden;cursor:pointer}.box:hover:before{top:50%}.box:hover .box-in{visibility:hidden}.box:before{position:absolute;top:-50%;left:50%;transform:translate(-50%,-50%);width:40px;color:peru;font-weight:700}.box-in{visibility:visible;display:inline-block;height:20px;width:20px;border:3px solid #000;border-color:#fff transparent transparent #fff;transform:rotate(45deg)}</style><link rel="stylesheet" href="/bundle/index.css"><script type="text/javascript">var timeSinceLang={year:"年前",month:"个月前",day:"天前",hour:"小时前",minute:"分钟前",second:"秒前"},root=""</script><meta name="keywords" content="phantomjs,python,"><meta name="description" content="初探 PhantomJS &#43; Selenium 模拟浏览器行为"><title>初探 PhantomJS &#43; Selenium 模拟浏览器行为</title></head><body style="background-color:#fff"><article class="container"><header class="header-wrap"><nav><a class="index" href="/"><img class="logo" src="/images/avatar.png"> True Me</a><div onclick="darker()" style="background-image:url(/images/dark-brush.svg);background-size:contain;height:32px;width:32px;margin:1em 0;cursor:pointer"></div></nav><ul class="menu"><li class="menu-item"><a href="/archive.html">归档</a></li><li class="menu-item"><a href="/tag.html">标签</a></li><li class="menu-item"><a href="/blogroll.html">友链</a></li><li class="menu-item"><a href="/about.me.html">关于</a></li><li class="menu-item"><a href="/atom.xml"></a></li></ul></header><script type="text/javascript">function darker(){"rgb(255, 255, 255)"===sessionStorage.getItem("bg")?(sessionStorage.setItem("bg","rgb(2, 2, 2)"),sessionStorage.setItem("md","night")):null==sessionStorage.getItem("bg")?(sessionStorage.setItem("bg","rgb(2, 2, 2)"),sessionStorage.setItem("md","night")):"rgb(2, 2, 2)"===sessionStorage.getItem("bg")&&(sessionStorage.setItem("bg","rgb(255, 255, 255)"),sessionStorage.setItem("md","day")),document.body.style.backgroundColor=sessionStorage.getItem("bg"),document.body.style.color=sessionStorage.getItem("md")}document.body.style.backgroundColor=sessionStorage.getItem("bg"),document.body.style.color=sessionStorage.getItem("md")</script><article class="main article"><h1 class="title">初探 PhantomJS &#43; Selenium 模拟浏览器行为</h1><section class="info"><span class="avatar" style="background-image:url(/images/avatar.png)"></span> <a class="name" href="/about.me.html">Zetao Yang</a> <span class="date" data-time="1498488236"><span class="from"></span> 更新</span> <span class="tags"><a class="tag" href="/tag/phantomjs/index.html">phantomjs</a><a class="tag" href="/tag/python/index.html">python</a></span></section><article class="content"><h3>PhantomJS</h3><p>首先，简单介绍一下 <a href="http://phantomjs.org/">PhantomJS</a> ，它是一个基于 WebKit 的服务器端 JavaScript API ，无需浏览器的支持即可实现对 Web 的支持，且原生支持各种 Web 标准。适合使用在 <em>Web 测试</em> ，当然也可以应对反爬虫。</p><h3>获取 Cookie</h3><p>有些网站的 cookie 很难用普通的爬虫获取，因为很多网站使用 ajax 动态加载网页内容，而且大多数时候 ajax 请求都会经过后台鉴权，这时就可以通过 <strong>PhantomJS + Selenium</strong> 模拟浏览器的行为，拿到经过 javascript 渲染后页面的内容。</p><p>请看下面的这段代码，以 <em><a href="http://www.umeng.com/">cnzz统计</a></em> 为例：</p><pre><code class="language-python">#!/usr/bin/python
+# coding:utf-8
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import time
+
+url_login = 'https://i.umeng.com/loginframe?app_id=cnzz' 
+# driver = webdriver.Remote(
+# command_executor='http://127.0.0.1:8080',
+# desired_capabilities=DesiredCapabilities.CHROME)
+# 这里为 phantomjs 的路径
+driver = webdriver.PhantomJS(executable_path=&quot;/home/phantomjs/bin/phantomjs&quot;)
+driver.get(url_login)
+
+# cnzz 用户名
+driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.0.0.0.0.0.1']&quot;).send_keys('&lt;your cnzz email address&gt;') 
+# cnzz 密码
+driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.0.0.1.0.0']&quot;).send_keys('&lt;your cnzz password&gt;') 
+# 1 秒后再模拟点击登录按钮事件，这样更接近真实的用户交互
+time.sleep(1)
+driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.2.0']&quot;).click()  
+# 等待 5 秒后，再获取 cookie
+time.sleep(5)
+cookie_list = driver.get_cookies()
+# print cookie_list
+
+cookie_str=''
+for cookie in cookie_list:
+    # print (&quot;%s=%s;&quot; % (cookie['name'], cookie['value']))
+    cookie_str=cookie_str + cookie['name']+'='+cookie['value']+';'
+    driver.quit()
+    return cookie_str
+</code></pre><h4>小实战</h4><p>有这样一个场景：</p><p>假如我有一个网站(托管在 Github Pages 的静态网站)使用 cnzz 的网站访问统计，我需要一个这样的提醒服务：当有特定的 IP 访问我的网站时，要发邮箱提醒我。</p><pre><code class="language-python">#!/usr/bin/python3
+# coding:utf-8
+
+import requests
+import time
+import datetime
+import pickle
+
+__author__ = 'zetaoyang'
+__version__ = '0.3.0'
+
+# 使用了 mailgun 的邮箱服务
+def send_simple_message(visit_count,visit_time,listshow_ip):
+    return requests.post(
+&quot;https://api.mailgun.net/v3/sandboxfd8956dd22c742899928f5556dd679c7.mailgun.org/messages&quot;,
+        auth=(&quot;api&quot;, &quot;key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;), # 此处填 mailgun 的 key
+        data={&quot;from&quot;: &quot;Monitor Robot &lt;postmaster@sandboxfd8956dd22c742899928f5556dd679c7.mailgun.org&gt;&quot;,
+              &quot;to&quot;: [&quot;xxxxx@xxx.xxx&quot;], # 此处填 收件人邮箱地址
+              &quot;subject&quot;: &quot;Hello,xxx&quot;,
+              &quot;html&quot;: &quot;&lt;html&gt;&lt;body&gt;IP:2xx.1xx.2xx.0 ~ 2xx.1xx.2xx.255 has visited your website &quot;+str(visit_count)+&quot; times!&lt;br&gt;Monitor time: &quot;+visit_time+&quot;&lt;br&gt;&quot;+&quot;detail is :&quot;+ str(listshow_ip)+&quot;&lt;/body&gt;&lt;/html&gt;&quot;})
+
+def FileCheck(fn):
+    try:
+        favorite_color = pickle.load(open(fn,&quot;rb&quot;))
+        return (1,favorite_color)
+    except IOError:
+        # print (&quot;Error: File does not appear to exist.&quot;)
+        return (0,'error')
+
+def get_cookie_from_network():
+    from selenium import webdriver
+    from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+    import time
+
+    url_login = 'https://i.umeng.com/loginframe?app_id=cnzz' 
+    # driver = webdriver.Remote(
+    # command_executor='http://127.0.0.1:8080',
+    # desired_capabilities=DesiredCapabilities.CHROME)
+    driver = webdriver.PhantomJS(executable_path=&quot;/home/phantomjs/bin/phantomjs&quot;)
+    driver.get(url_login)
+    
+    driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.0.0.0.0.0.1']&quot;).send_keys('&lt;your cnzz email address&gt;') 
+    driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.0.0.1.0.0']&quot;).send_keys('&lt;your cnzz password&gt;') 
+
+    time.sleep(1)
+    driver.find_element_by_xpath(&quot;//input[@data-reactid='.0.0.0.1.2.0']&quot;).click()   
+    time.sleep(5)
+
+    cookie_list = driver.get_cookies()
+
+    cookie_str=''
+
+    for cookie in cookie_list:
+       # print (&quot;%s=%s;&quot; % (cookie['name'], cookie['value']))
+        cookie_str=cookie_str + cookie['name']+'='+cookie['value']+';'
+    # print (cookie_list)
+    driver.quit()
+    return cookie_str
+
+
+current_unix_time = int(time.time()) + 28800 
+
+query_date = datetime.datetime.fromtimestamp(current_unix_time).strftime('%Y-%m-%d') # '2017-03-08'
+
+detail_time = datetime.datetime.fromtimestamp(current_unix_time).strftime('%Y-%m-%d %H:%M:%S') 
+
+site_id = 'xxxxxxxxxx' # your siteid
+
+cookie = get_cookie_from_network() 
+
+url = 'https://web.umeng.com/main.php?c=flow&amp;a=detail&amp;ajax=module%3DfluxData_option%3Dpv%7Cmodule%3DdetailPvList_currentPage%3D{current_page}_pageType%3D{page_size}&amp;siteid={site_id}&amp;st={start_date}&amp;et={end_date}&amp;visitorType=&amp;visitorAgent=&amp;visitorAct=&amp;location=&amp;refererType=&amp;ip=&amp;referer=&amp;keyword=&amp;hour=24&amp;page=&amp;cnzz_eid='
+
+pv_logs = []
+page = 1
+has_next = True
+
+# 保存上一次的查询结果到本地文件，防止重复发邮件
+if(FileCheck(&quot;/home/target_data.pkl&quot;)[0] ==1):
+    target_num = FileCheck(&quot;/home/target_data.pkl&quot;)[1]['num']
+else:
+    pickle.dump({'num':'0000000000c1'},open(&quot;/home/target_data.pkl&quot;,&quot;wb&quot;))
+    target_num = '0000000000c1'
+
+while has_next:
+    print (&quot;GET page %d &quot; % page)
+    response = requests.get(
+        url=url.format(current_page=page, page_size=90, start_date=query_date, end_date=query_date, site_id=site_id),
+        headers={
+            'Cookie': cookie,
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, sdch, br',
+            #'X-Requested-With': 'XMLHttpRequest',
+        },
+    )
+
+    data = response.json()['data']['detailPvList']
+    pv_logs.extend(data['items'])
+    has_next = data['page']['hasNext'] == u'1'
+
+    page += 1
+
+print ('Got %d pv logs' % len(pv_logs))
+
+ip_visits = {}
+visit_counts = {}
+
+for pv in pv_logs:
+    ip_visits[pv['ip']] = ip_visits.get(pv['ip'], 0) + 1
+
+list_ip = []
+found_flag = False
+total_visits = 0
+
+for ip, visits in sorted(ip_visits.items(), key=lambda ip: ip[1], reverse=True):
+    # 2xx.1xx.2xx.0~2xx.1xx.2xx.255 
+    ip_match=ip.split(&quot;.&quot;)
+    # print (len(ip_visits.items()))
+
+    if(ip_match[0]=='2xx' and ip_match[1]=='1xx' and int(ip_match[2]) &lt;= 2xx and int(ip_match[2]) &gt;= 2xx):
+        print ('here it is')
+        found_flag = True
+        list_ip.append(ip)
+        list_ip.append(visits)
+        total_visits += visits
+
+        query_unix_time = time.mktime(datetime.datetime.strptime(query_date, &quot;%Y-%m-%d&quot;).timetuple())
+        favorite_number={&quot;num&quot;:str(int(query_unix_time)) +'c'+ str(total_visits)}
+        # print (favorite_number['num'])
+        # if(target_num != favorite_number['num'] or found_flag==True):
+
+    
+    visit_counts[visits] = visit_counts.get(visits, 0) + 1
+
+print (list_ip)
+
+if(found_flag==True):
+    if(target_num != favorite_number['num']):
+        pickle.dump(favorite_number,open(&quot;/home/target_data.pkl&quot;,&quot;wb&quot;))
+        send_simple_message(total_visits,detail_time,list_ip)
+        print ('sended')
+else:
+    print ('not found')
+</code></pre><p>最后部署到服务器上，我部署到了 <a href="https://console.ng.bluemix.net/">IBM Bluemix</a> 的 docker 容器(容器镜像是 <a href="https://github.com/phusion/baseimage-docker">baseimage-docker</a> )上 ,crontab 定时任务<code>0 */3 * * * /usr/bin/python3 /home/cnzz_ip_count_and_email-v3.py</code>每3小时 访问一次 cnzz 获取数据。</p><p>总结： 上面的方案不是最好的解决方案，因为实时性监测不好。我想到的另一种解决方案是 类似于 <a href="https://ifttt.com/">IFTTT</a> ，网页前端 检测 特定IP 是否访问网站，然后触发访问一个发邮件接口(自己在 openshift 或 heroku 等平台搭建一个 接口服务)，这样似乎更好一些。最后感谢 <a href="https://github.com/brucezz/">Brucezz</a> 和 <a href="https://github.com/wuchangfeng">wuchangfeng</a> 提供的第一版脚本原型。</p><h3>[补充]CasperJS</h3><p><a href="http://casperjs.org/">CasperJS</a> 是对 PhantomJS 更好的封装。</p><p>再看一例，cnzz 统计设置了查看密码的情形：</p><pre><code class="language-javascript">var casper = require(&quot;casper&quot;).create();
+var x = require(&quot;casper&quot;).selectXPath;  //用来简化XPath操作
+
+casper.userAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36');
+
+var siteid = '&lt;your siteid&gt;' // cnzz 站点id,比如 1763173848
+var url = 'http://new.cnzz.com/v1/login.php?siteid=1' + siteid;
+casper.start(url, function(){
+    this.fill('form[name=&quot;form1&quot;]', {
+    'password': '&lt;your cnzz view password &gt;'  // cnzz 的查看密码
+}, true);   //true, 填充完毕后,立刻提交表单
+});
+
+casper.then(function(){
+    casper.wait(2000, function(){
+        this.capture('cnzz.png'); //截取整个页面
+    });
+});
+
+casper.then(function(){
+    //this.captureSelector('cnzz.png', x('//*[@id=&quot;overview_top_order_table&quot;]')); //截取指定的selector
+});
+
+casper.then(function(){
+    var today=this.evaluate(function(){
+        var tbl=document.getElementById(&quot;overview_top_order_table&quot;);
+        return {
+            pv: tbl.rows[1].cells[1].innerHTML,
+            uv: tbl.rows[1].cells[2].innerHTML,
+            ip: tbl.rows[1].cells[3].innerHTML,
+        };
+    });
+    console.log(today.pv);
+    console.log(today.uv);
+    console.log(today.ip);
+});
+casper.run();
+
+</code></pre></article><section class="author"><div class="avatar" style="background-image:url(/images/avatar.png)"></div><a class="name" href="/about.me.html">Zetao Yang</a><div class="intro">Thoughts and ideas.</div></section><section class="recommend"><section class="nav next"><div class="head">下篇文章</div><a class="link" href="/./post/2017/03/20/geohash.html">Geohash 编码解码 C 语言实现</a></section></section><section id="disqus_thread"></section><script type="text/javascript">!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//zetao.disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script></article></article><script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-85037972-1","auto"),ga("send","pageview")</script><footer class="footer"><span class="copyright">True Me ©2016-<script type="text/javascript">document.write((new Date).getFullYear())</script>&nbsp;Zetao的小站 </span><span class="publish">本站使用<a href="https://creativecommons.org/licenses/by/4.0/deed.zh">「署名 4.0 国际」</a>创作共享协议</span></footer><div id="to-top" class="box"><div class="box-in"><div><div><script>window.onscroll=function(){var o=document.documentElement.scrollTop||document.body.scrollTop,e=document.documentElement.clientHeight||document.body.clientHeight;a.style.display=o>e?"block":"none"};var a=document.getElementById("to-top");a.onclick=function(){var o=500,e=10,n=document.documentElement.scrollTop||document.body.scrollTop,t=n/o*e,c=window.setInterval(function(){var o=document.documentElement.scrollTop||document.body.scrollTop;0==o&&window.clearInterval(c),document.documentElement.scrollTop=o-t,document.body.scrollTop=o-t},e);return!1}</script><script src="/bundle/index.js"></script></div></div></div></div></body></html>
