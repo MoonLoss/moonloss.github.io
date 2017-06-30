@@ -1,9 +1,7 @@
-'use strict';
-
-const version = 'v20170219';
-const __DEVELOPMENT__ = false;
-const __DEBUG__ = false;
-const offlineResources = [
+var version = 'v20170630';
+var __DEVELOPMENT__ = false;
+var __DEBUG__ = false;
+var offlineResources = [
   '/',
   '/index.html',
   '/about.me.html',
@@ -29,10 +27,12 @@ const offlineResources = [
   '/post/2016/12/24/t-top-inspiration-websites-for-designers.html',
   '/post/2016/12/30/2016-summary.html',
   '/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html',
+  '/post/2017/03/20/geohash.html',
+  '/post/2017/04/28/phantomjs.html',
 
 ];
 
-const ignoreFetch = [
+var ignoreFetch = [
   /https?:\/\/cdn.bootcss.com\//,
   /https?:\/\/www.google-analytics.com\//,
   /https?:\/\/zetao.disqus.com\//,
@@ -64,7 +64,7 @@ function updateStaticCache() {
 // Fetch
 ////////
 function onFetch(event) {
-  const request = event.request;
+  var request = event.request;
 
   if (shouldAlwaysFetch(request)) {
     event.respondWith(networkedOrOffline(request));
