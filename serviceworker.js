@@ -1,7 +1,9 @@
-var version = 'v20170630';
-var __DEVELOPMENT__ = false;
-var __DEBUG__ = false;
-var offlineResources = [
+'use strict'
+
+const version = 'v20170630';
+const __DEVELOPMENT__ = false;
+const __DEBUG__ = false;
+const offlineResources = [
   '/',
   '/index.html',
   '/about.me.html',
@@ -18,7 +20,7 @@ var offlineResources = [
   '/post/2016/10/08/github-api.html',
   '/post/2016/10/09/progressive-encoding-jpeg.html',
   '/post/2016/10/10/compile-linux-kernal.html',
-  '/post/2016/10/17/gitlab-cl.html',
+  '/post/2016/10/17/gitlab-ci.html',
   '/post/2016/10/28/refind.html',
   '/post/2016/11/01/rime.html',
   '/post/2016/11/05/linux-shared-object.html',
@@ -32,7 +34,7 @@ var offlineResources = [
 
 ];
 
-var ignoreFetch = [
+const ignoreFetch = [
   /https?:\/\/cdn.bootcss.com\//,
   /https?:\/\/www.google-analytics.com\//,
   /https?:\/\/zetao.disqus.com\//,
@@ -64,7 +66,7 @@ function updateStaticCache() {
 // Fetch
 ////////
 function onFetch(event) {
-  var request = event.request;
+  const request = event.request;
 
   if (shouldAlwaysFetch(request)) {
     event.respondWith(networkedOrOffline(request));
