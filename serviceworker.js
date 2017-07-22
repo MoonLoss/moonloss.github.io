@@ -31,6 +31,7 @@ const offlineResources = [
   '/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html',
   '/post/2017/03/20/geohash.html',
   '/post/2017/04/28/phantomjs.html',
+  '/post/2017/06/20/my-linux-mint-configuration.html',
 
 ];
 
