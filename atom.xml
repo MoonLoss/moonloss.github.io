@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-07-22T00:47:23Z</updated>
+  <updated>2017-07-23T14:19:52Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -9,8 +9,8 @@
   </author>
   <entry>
     <title>我的 Linux Mint 『配置』清单</title>
-    <updated>2017-07-22T08:44:45+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-07-22:/post/2017/06/20/my-linux-mint-configuration.html</id>
+    <updated>2017-07-23T22:09:08+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-07-23:/post/2017/06/20/my-linux-mint-configuration.html</id>
     <content type="html">&lt;p&gt;在使用自己的系统 (Linux Mint) 时，不由地担心万一哪天坏掉，要重装系统，这么多配置好的环境怎么恢复啊，因此整理出一篇博文记录一下自己平时常用软件以及开发环境配置，以备不时之需。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2017/06/20/my-linux-mint-configuration.html"></link>
     <author>
