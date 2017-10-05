@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-10-04T15:24:36Z</updated>
+  <updated>2017-10-05T06:00:14Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -9,8 +9,8 @@
   </author>
   <entry>
     <title>我的 Linux Mint 『配置』清单</title>
-    <updated>2017-08-27T11:20:02+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-08-27:/post/2017/06/20/my-linux-mint-configuration.html</id>
+    <updated>2017-10-05T13:37:57+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2017/06/20/my-linux-mint-configuration.html</id>
     <content type="html">&lt;p&gt;在使用自己的系统 (Linux Mint) 时，不由地担心万一哪天坏掉，要重装系统，这么多配置好的环境怎么恢复啊，因此整理出一篇博文记录一下自己平时常用软件以及开发环境配置，以备不时之需。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2017/06/20/my-linux-mint-configuration.html"></link>
     <author>
@@ -69,8 +69,8 @@
   </entry>
   <entry>
     <title>Wireshark 监听 localhost/127.0.0.1 环回地址的方法</title>
-    <updated>2016-12-04T16:09:20+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-12-04:/post/2016/12/04/wireshark-npcap.html</id>
+    <updated>2017-10-05T13:37:57+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/12/04/wireshark-npcap.html</id>
     <content type="html">&lt;p&gt;由于 Windows 系统没有提供本地环回网络的接口，所以用 Wireshark 只能看到经过网卡的数据流量，看不到访问 localhost/127.0.0.1 的流量。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/12/04/wireshark-npcap.html"></link>
     <author>
@@ -79,8 +79,8 @@
   </entry>
   <entry>
     <title> Debian 上搭建 Caddy Server </title>
-    <updated>2016-11-13T22:11:00+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-11-13:/post/2016/11/13/caddy-server.html</id>
+    <updated>2017-10-05T13:37:57+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/11/13/caddy-server.html</id>
     <content type="html">&lt;p&gt;昨天在自己的 VPS (运行 Debian 8 64bits )上，使用  Caddy 作为 Web 服务器。现将配置流程记录一下。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/11/13/caddy-server.html"></link>
     <author>
@@ -99,8 +99,8 @@
   </entry>
   <entry>
     <title>谈谈 RIME </title>
-    <updated>2016-11-01T22:32:00+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-11-01:/post/2016/11/01/rime.html</id>
+    <updated>2017-10-05T13:37:57+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/11/01/rime.html</id>
     <content type="html">&lt;p&gt;『聰明的輸入法懂我心意』，正如 RIME 官网所说得那样。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/11/01/rime.html"></link>
     <author>
