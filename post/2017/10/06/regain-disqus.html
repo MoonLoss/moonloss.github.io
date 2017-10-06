@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1,minimum-scale=1,maximum-scale=1"><link rel="shortcut icon" href="/favicon.png"><link rel="apple-itouch-icon" href="/favicon.png"><style>img{max-width:100%}</style><script type="text/javascript">function onVisibilityChange(){document.hidden?(document.title="(/≧▽≦/)不要离开我！",clearTimeout(titleTime)):(document.title="True Me"+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2e3))}var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",onVisibilityChange)</script><script type="text/javascript">"serviceWorker"in navigator&&navigator.serviceWorker.register("/serviceworker.js").then(function(e){console.log("[Service Worker] Registered，rage is",e.scope)})["catch"](function(e){console.log("[Service Worker] Register failed:",e)})</script><style type="text/css">.box{display:none;position:fixed;right:10px;bottom:34px;height:30px;width:50px;text-align:center;padding-top:20px;background-color:#e5e5e5;opacity:.58;border-radius:25px;overflow:hidden;cursor:pointer;z-index:10}.box:hover{background-color:#7f7f7f}.box-in{visibility:visible;display:inline-block;height:20px;width:20px;border:3px solid #000;border-color:#fff transparent transparent #fff;transform:rotate(45deg)}</style><link rel="stylesheet" href="/bundle/index.css"><script type="text/javascript">var timeSinceLang={year:"年前",month:"个月前",day:"天前",hour:"小时前",minute:"分钟前",second:"秒前"},root=""</script><link rel="stylesheet" href="/bundle/iDisqus.min.css"><script src="/bundle/iDisqus.min.js"></script><meta name="keywords" content="disqus,php,"><meta name="description" content="让 Disqus「重获新生」"><title>让 Disqus「重获新生」</title></head><body style="background-color:#fff" onload="checkDarker()"><article class="container"><header class="header-wrap"><nav><a class="index" href="/"><img class="logo" src="/images/avatar.png"> True Me</a><div onclick="darker()" style="background-image:url(/images/dark-brush.svg);background-size:contain;height:32px;width:32px;margin:1em 0;cursor:pointer"></div></nav><ul class="menu"><li class="menu-item"><a href="/archive.html">归档</a></li><li class="menu-item"><a href="/tag.html">标签</a></li><li class="menu-item"><a href="/blogroll.html">友链</a></li><li class="menu-item"><a href="/about.me.html">关于</a></li><li class="menu-item"><a href="/atom.xml"></a></li></ul></header><script type="text/javascript">function checkDarker(){if("rgb(255, 255, 255)"==sessionStorage.getItem("bg")){for(var e=document.getElementsByTagName("p"),t=0;t<e.length;t++)e[t].style.color="#293846";for(var o=document.getElementsByClassName("name"),t=0;t<o.length;t++)o[t].style.color="#293846";for(var s=document.getElementsByTagName("li"),t=0;t<s.length;t++)s[t].style.color="#293846";for(var l=document.getElementsByTagName("h1"),t=0;t<l.length;t++)l[t].style.color="#293846";for(var g=document.getElementsByTagName("h3"),t=0;t<g.length;t++)g[t].style.color="#293846";for(var n=document.getElementsByClassName("link"),t=0;t<n.length;t++)n[t].style.color="#293846"}else if("rgb(63, 63, 63)"===sessionStorage.getItem("bg")){for(var r=document.getElementsByTagName("p"),t=0;t<r.length;t++)r[t].style.color="#c8c8c8";for(var m=document.getElementsByClassName("name"),t=0;t<m.length;t++)m[t].style.color="#c8c8c8";for(var a=document.getElementsByTagName("li"),t=0;t<a.length;t++)a[t].style.color="#c8c8c8";for(var c=document.getElementsByTagName("h1"),t=0;t<c.length;t++)c[t].style.color="#c8c8c8";for(var y=document.getElementsByTagName("h3"),t=0;t<y.length;t++)y[t].style.color="#c8c8c8";for(var d=document.getElementsByClassName("link"),t=0;t<d.length;t++)d[t].style.color="#c8c8c8"}}function darker(){if("rgb(255, 255, 255)"===sessionStorage.getItem("bg")?(sessionStorage.setItem("bg","rgb(63, 63, 63)"),sessionStorage.setItem("md","night")):null==sessionStorage.getItem("bg")?(sessionStorage.setItem("bg","rgb(63, 63, 63)"),sessionStorage.setItem("md","night")):"rgb(63, 63, 63)"===sessionStorage.getItem("bg")&&(sessionStorage.setItem("bg","rgb(255, 255, 255)"),sessionStorage.setItem("md","day")),document.body.style.backgroundColor=sessionStorage.getItem("bg"),document.body.style.color=sessionStorage.getItem("md"),"night"==sessionStorage.getItem("md")){for(var e=document.getElementsByTagName("p"),t=0;t<e.length;t++)e[t].style.color="#c8c8c8";for(var o=document.getElementsByClassName("name"),t=0;t<o.length;t++)o[t].style.color="#c8c8c8";for(var s=document.getElementsByTagName("li"),t=0;t<s.length;t++)s[t].style.color="#c8c8c8";for(var l=document.getElementsByTagName("h1"),t=0;t<l.length;t++)l[t].style.color="#c8c8c8";for(var g=document.getElementsByTagName("h3"),t=0;t<g.length;t++)g[t].style.color="#c8c8c8";for(var n=document.getElementsByClassName("link"),t=0;t<n.length;t++)n[t].style.color="#c8c8c8"}else if("day"==sessionStorage.getItem("md")){for(var r=document.getElementsByTagName("p"),t=0;t<r.length;t++)r[t].style.color="#293846";for(var m=document.getElementsByClassName("name"),t=0;t<m.length;t++)m[t].style.color="#293846";for(var a=document.getElementsByTagName("li"),t=0;t<a.length;t++)a[t].style.color="#293846";for(var c=document.getElementsByTagName("h1"),t=0;t<c.length;t++)c[t].style.color="#293846";for(var y=document.getElementsByTagName("h3"),t=0;t<y.length;t++)y[t].style.color="#293846";for(var d=document.getElementsByClassName("link"),t=0;t<d.length;t++)d[t].style.color="#293846"}}document.body.style.backgroundColor=sessionStorage.getItem("bg"),document.body.style.color=sessionStorage.getItem("md")</script><article class="main article"><h1 class="title">让 Disqus「重获新生」</h1><section class="info"><span class="avatar" style="background-image:url(/images/avatar.png)"></span> <a class="name" href="/about.me.html">Zetao Yang</a> <span class="date" data-time="1507292323"><span class="from"></span> 更新</span> <span class="tags"><a class="tag" href="/tag/disqus/index.html">disqus</a><a class="tag" href="/tag/php/index.html">php</a></span></section><article class="content"><h3>前言</h3><p>由于 Disqus 大陆无法正常访问，所以很长一段时间我博客原生的 Disqus 评论框，只有大陆外和「掌握科学上网」技能的人，才能看见和评论。访客要留言，和我交流都得要「科学上网」吗？如果评论系统不能正常评论，那还要它干啥？后来，找到了比较好的解决之道。另外， 为什么大费周章地折腾 Disqus，而不去试试国内的类似服务呢？简单来说，还是 Disqus 可靠些，这不是崇洋媚外，事实如此。这里引用 <a href="https://imququ.com">Jerry Qu</a> 的一段话：</p><blockquote><p>作为一个免费产品，如果不能找到可靠的盈利模式，什么时候停止服务就取决于老板的耐心和决心了。</p></blockquote><h3>实现方法</h3><p>借「路」大陆外的服务器或支持 cURL 的虚拟空间(理论上，大陆内的网络大多无法直接访问 Disqus，虽然可以使用指定 IP，但访问 Disqus 的速度明显没有大陆外的主机快，所以最好是大陆外的主机)。<a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 这个项目就是后端代码，项目作者选择了 PHP cURL，因为PHP 的虚拟空间好找呀。</p><h3>后端部署</h3><p><a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 下<code>api</code>目录下的就是 PHP 后台代码。</p><pre><code>├─disqus-php-api
+│      demo.html
+│      gulpfile.js
+│      index.js
+│      package.json
+│      update-thread.html
+│      webpack.config.js
+│
+├─api
+│  │  cacert.pem
+│  │  config.php
+│  │  count.php
+│  │  createthread.php
+│  │  getcomments.php
+│  │  getgravatar.php
+│  │  init.php
+│  │  popular.php
+│  │  postcomment.php
+│  │  removecomment.php
+│  │  sendemail.php
+│  │  updatecomment.php
+│  │  updatethread.php
+│  │  upload.php
+│  │
+│  ├─emojione
+│  │  │  autoload.php
+│  │  │
+│  │  └─src
+│  │          Client.php
+│  │          ClientInterface.php
+│  │          Emojione.php
+│  │          Ruleset.php
+│  │          RulesetInterface.php
+│  │
+│  └─PHPMailer
+│          class.phpmailer.php
+│          class.smtp.php
+│
+├─dist
+│      eac.min.json
+│      iDisqus.min.css
+│      iDisqus.min.js
+│
+└─src
+       eac.json
+       iDisqus.js
+       iDisqus.scss
+       jsonminify
+</code></pre><p>按照<code>config.php</code>文件里的代码注释，将相关个人 Disqus 配置信息填好。然后就直接把整个<code>api</code>文件夹拷贝到自己的境外服务器或者 PHP 虚拟空间。至此，后端就部署好了。</p><p><strong>注</strong>：如果使用的是虚拟 PHP 空间，此 PHP API 的 URL 可以使用虚拟空间提供的二级域名，也可以使用自己的域名，URL 的地址可以规范一下，比如：<code>//api.xxx.com/disqus/v1</code>。</p><h3>前端使用</h3><p>前端需要 <a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 下<code>dist</code>目录下的三个文件：<code>eac.min.json</code>(压缩的 emoji unicode 编码文件)，<code>iDisqus.min.css</code>，<code>iDisqus.min.js</code>。</p><p>主要分三步：</p><ol><li>引入 CSS, JS：</li></ol><pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/iDisqus.min.css&quot; /&gt;
+</code></pre><pre><code class="language-html">&lt;script src=&quot;path/to/iDisqus.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><ol><li>创建容器：</li></ol><pre><code class="language-html">&lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
+</code></pre><ol><li>创建实例：</li></ol><p>这里贴出我的大体配置，详细如何配置参看 <a href="https://github.com/fooleap/disqus-php-api/blob/master/readme.md">README</a>。</p><pre><code class="language-javascript">var disq = new iDisqus('comment', {
+    forum: 'your_disqus_short_name',
+    api: 'https://api.xxx.com/disqus/v1',
+    site: 'https://your_website.com',
+    mode: 3,
+    timeout: 3000,
+    init: true,
+    toggle: 'comment-toggle',
+    sort: 'newest',
+    emoji_preview: true,
+	badge: '博主'
+ });
+disq.popular();
+disq.count();
+</code></pre><p>对于切换评论框，具体用法是在网页中放置一个 Checkbox ：</p><pre><code class="language-html">&lt;div class=&quot;comment-toggle&quot;&gt; 
+	&lt;input type=&quot;checkbox&quot; id=&quot;comment-toggle&quot; class=&quot;comment-toggle-input&quot; disabled&gt; 
+	&lt;label class=&quot;comment-toggle-icon&quot; for=&quot;comment-toggle&quot;&gt;&lt;/label&gt; 
+	&lt;label class=&quot;comment-toggle-button&quot; for=&quot;comment-toggle&quot;&gt;评论框&lt;/label&gt; 
+&lt;/div&gt;
+</code></pre><p><strong>注</strong>：这里有一个小坑，可能因人而已，才可能会遇到，就是实例创建的配置<code>site: 'https://your_website.com'</code>这一项，网址<code>https://your_website.com</code>后千万不要再加<code>/</code>，否则，切换评论框失效。这个「坑」我是看到<code>iDisqus.js</code>里的这段代码才发现的：</p><pre><code class="language-javascript">var _ = this;
+var _tip = _.dom.querySelector('.loading-container').dataset.tip;
+if(_.opts.site != location.origin){
+//console.log('本地环境不加载 Disqus 评论框！');
+if( _.opts.mode == 1 ){
+	_.getlist();
+ }
+   return;
+}
+</code></pre><p>看到<code>if(_.opts.site != location.origin)</code> 才恍然大悟。</p><p>最后，前端剩下的就是一些 CSS 样式的调整了。</p><h3>相关资料</h3><p><a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 作者博客：</p><ul><li><a href="http://blog.fooleap.org/mention-people-on-disqus.html">Disqus 的 @ 提及功能</a><br></li><li><a href="http://blog.fooleap.org/use-disqus-correctly.html">科学使用 Disqus </a></li><li><a href="http://blog.fooleap.org/get-link-color-like-disqus.html">像 Disqus 一样获取链接颜色 </a></li><li><a href="http://blog.fooleap.org/disqus-url-encode.html">Disqus 的 URL 编码问题 </a></li><li><a href="http://blog.fooleap.org/use-disqus-api-to-upload-image.html">使用 Disqus API 上传图片</a><br></li><li><a href="http://blog.fooleap.org/disqus-api-comments-order-by-desc.html">Disqus API 评论嵌套问题</a><br></li><li><a href="http://blog.fooleap.org/disqus-api-permissions.html">Disqus API 的权限问题 </a></li><li><a href="http://blog.fooleap.org/pre-moderation-on-disqus.html">Disqus 的评论预审核 </a></li><li><a href="http://blog.fooleap.org/disqus-moderator-badge-text.html">Disqus Moderator Badge Text 已支持中文</a><br></li></ul><p><a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> DEMO 演示：</p><ul><li><a href="http://blog.fooleap.org/disqus-php-api.html">Disqus PHP API 示例</a><br></li></ul></article><section class="author"><div class="avatar" style="background-image:url(/images/avatar.png)"></div><a class="name" href="/about.me.html">Zetao Yang</a><div class="intro">Thoughts and ideas.</div></section><section class="recommend"><section class="nav next"><div class="head">下篇文章</div><a class="link" href="/./post/2017/06/20/my-linux-mint-configuration.html">我的 Linux Mint 『配置』清单</a></section></section><style type="text/css">.comment-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;font-size:14px}.comment-toggle .comment-toggle-input{display:none}.comment-toggle .comment-toggle-input:checked+.comment-toggle-icon{background-color:#2aa0ff}.comment-toggle .comment-toggle-input:checked+.comment-toggle-icon:before{margin-left:11px}.comment-toggle .comment-toggle-input:disabled~.comment-toggle-button,.comment-toggle .comment-toggle-input:disabled~.comment-toggle-icon{display:none}.comment-toggle .comment-toggle-icon{display:block;width:26px;height:15px;background-color:#434343;border-radius:10px;cursor:pointer;padding:2.5px 3px;-webkit-transition:all .3s;transition:all .3s}.comment-toggle .comment-toggle-icon:before{-webkit-transition:all .3s;transition:all .3s;content:"";display:block;width:15px;height:15px;border-radius:50%;background-color:#fff}.comment-toggle .comment-toggle-button{display:block;color:#fff!important;background-color:#434343;border-radius:2px;line-height:20px;height:20px;padding:0 3px;cursor:pointer;margin:0 5px}</style><section style="display:block;margin-top:40px"><div class="comment-toggle"><input type="checkbox" id="comment-toggle" class="comment-toggle-input" disabled="disabled"><label class="comment-toggle-icon" for="comment-toggle"></label><label class="comment-toggle-button" for="comment-toggle">评论框</label></div></section><div id="comment"></div><script>var disq=new iDisqus("comment",{forum:"zetao",api:"https://d.sogaso.ga/disqus",site:"https://zetaoyang.github.io",mode:3,timeout:3e3,init:!0,toggle:"comment-toggle",sort:"newest",emoji_preview:!0,badge:"博主"});disq.popular(),disq.count()</script></article></article><script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-85037972-1","auto"),ga("send","pageview")</script><footer class="footer"><span class="copyright">True Me ©2016-<script type="text/javascript">document.write((new Date).getFullYear())</script>&nbsp;Zetao 的小站 </span><span class="publish">本站使用<a href="https://creativecommons.org/licenses/by/4.0/deed.zh">「署名 4.0 国际」</a>创作共享协议</span></footer><div id="to-top" class="box"><div class="box-in"><div><div><script>window.onscroll=function(){var o=document.documentElement.scrollTop||document.body.scrollTop,e=document.documentElement.clientHeight||document.body.clientHeight;a.style.display=o>e?"block":"none"};var a=document.getElementById("to-top");a.onclick=function(){var o=500,e=10,n=document.documentElement.scrollTop||document.body.scrollTop,t=n/o*e,c=window.setInterval(function(){var o=document.documentElement.scrollTop||document.body.scrollTop;0==o&&window.clearInterval(c),document.documentElement.scrollTop=o-t,document.body.scrollTop=o-t},e);return!1}</script><script src="/bundle/index.js"></script></div></div></div></div></body></html>
