@@ -46,10 +46,10 @@
        iDisqus.js
        iDisqus.scss
        jsonminify
-</code></pre><p>按照<code>config.php</code>文件里的代码注释，将相关个人 Disqus 配置信息填好。然后就直接把整个<code>api</code>文件夹拷贝到自己的境外服务器或者 PHP 虚拟空间。至此，后端就部署好了。</p><p><strong>注</strong>：如果使用的是虚拟 PHP 空间，此 PHP API 的 URL 可以使用虚拟空间提供的二级域名，也可以使用自己的域名，URL 的地址可以规范一下，比如：<code>//api.xxx.com/disqus/v1</code>。</p><h3>前端使用</h3><p>前端需要 <a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 下<code>dist</code>目录下的三个文件：<code>eac.min.json</code>(压缩的 emoji unicode 编码文件)，<code>iDisqus.min.css</code>，<code>iDisqus.min.js</code>。</p><p>主要分三步：</p><ol><li>引入 CSS, JS：</li></ol><pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/iDisqus.min.css&quot; /&gt;
+</code></pre><p>按照<code>config.php</code>文件里的代码注释，将相关个人 Disqus 配置信息填好。然后就直接把整个<code>api</code>文件夹拷贝到自己的境外服务器或者 PHP 虚拟空间。至此，后端就部署好了。</p><p><strong>注</strong>：如果使用的是虚拟 PHP 空间，此 PHP API 的 URL 可以使用虚拟空间提供的二级域名，也可以使用自己的域名，URL 的地址可以规范一下，比如：<code>//api.xxx.com/disqus/v1</code>。</p><h3>前端使用</h3><p>前端需要 <a href="https://github.com/fooleap/disqus-php-api"><strong>disqus-php-api</strong></a> 下<code>dist</code>目录下的三个文件：<code>eac.min.json</code>(压缩的 emoji unicode 编码文件)，<code>iDisqus.min.css</code>，<code>iDisqus.min.js</code>。</p><p>主要分三步：</p><ul><li>引入 CSS, JS：</li></ul><pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/iDisqus.min.css&quot; /&gt;
 </code></pre><pre><code class="language-html">&lt;script src=&quot;path/to/iDisqus.min.js&quot;&gt;&lt;/script&gt;
-</code></pre><ol><li>创建容器：</li></ol><pre><code class="language-html">&lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
-</code></pre><ol><li>创建实例：</li></ol><p>这里贴出我的大体配置，详细如何配置参看 <a href="https://github.com/fooleap/disqus-php-api/blob/master/readme.md">README</a>。</p><pre><code class="language-javascript">var disq = new iDisqus('comment', {
+</code></pre><ul><li>创建容器：</li></ul><pre><code class="language-html">&lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
+</code></pre><ul><li>创建实例：</li></ul><p>这里贴出我的大体配置，详细如何配置参看 <a href="https://github.com/fooleap/disqus-php-api/blob/master/readme.md">README</a>。</p><pre><code class="language-javascript">var disq = new iDisqus('comment', {
     forum: 'your_disqus_short_name',
     api: 'https://api.xxx.com/disqus/v1',
     site: 'https://your_website.com',

@@ -32,6 +32,7 @@ const offlineResources = [
   '/post/2017/03/20/geohash.html',
   '/post/2017/04/28/phantomjs.html',
   '/post/2017/06/20/my-linux-mint-configuration.html',
+  '/post/2017/10/06/regain-disqus.html',
 
 ];
 
