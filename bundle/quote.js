@@ -1,20 +1,6 @@
 
 var dictaColor = 'rgb(41, 56, 70)'; //文字颜色
 
-function dowritedicta(num){
-	var randid = Math.round(Math.random()*num);
-	randid = randid >= num ? num-1 : randid;
-	
-    //document.write('<p style="' + 'color: '+ dictaColor +';' + '">' + dictumin[randid] + '</p>');
-    //var p = '<p style="' + 'color: '+ dictaColor +';' + '">' + dictumin[randid] + '</p>';
-    var container = document.getElementById('quote'); //找到父级元素
-    var quote = document.createElement("p");
-    quote.innerHTML = dictumin[randid];
-    quote.style.color = dictaColor;
-    container.appendChild(quote);
-
-}
-
 var dictumin = new Array(
     '“一心向道无杂念 皈依三宝弃红尘” ——好妹妹乐队《青城山下白素贞》',
     '“在人生的道路上，当你的希望一个个落空的时候，你也要坚定，要沉着。” ——朗费罗',
@@ -28,9 +14,22 @@ var dictumin = new Array(
     '“天不老，情难绝，只要有青春，就会有爱恋，只要有别离，就会有相思，只要有心意，就一定会有那些寄不出去的情书。” ——于丹',
     '当你停止创造，你的才能就不再重要，剩下的只有品味，品味会排斥其他人，让你变得更狭隘，所以，要创造。希望你能因为自己生产了好东西而感到骄傲，而不是洋洋自得于消费了什么好东西，好品味不值得骄傲。',
     '“未来，它的作用就是：用充满活力的真正计划来构建现在美好的生活。” ——妙莉叶·芭贝里《刺猬的优雅》',
-    '锻炼或者学习，身体和精神得有/一个在路上。/只有你放弃的那一刻，才算是真的输了。',
+    '锻炼或者学习，身体和精神得有/一个在路上。/只有你放弃的那一刻，才算是真的输了。'
 
  );
 
-dowritedicta(dictumin.length);
+function dowritedicta(num){
+    var randid = Math.round(Math.random()*num);
+    randid = randid >= num ? num-1 : randid;
+    
+    //document.write('<p style="' + 'color: '+ dictaColor +';' + '">' + dictumin[randid] + '</p>');
+    //var p = '<p style="' + 'color: '+ dictaColor +';' + '">' + dictumin[randid] + '</p>';
+    var container = document.getElementById('quote'); //找到父级元素
+    var quote = document.createElement("p");
+    quote.innerHTML = dictumin[randid];
+    quote.style.color = dictaColor;
+    container.appendChild(quote);
 
+}
+
+dowritedicta(dictumin.length);
