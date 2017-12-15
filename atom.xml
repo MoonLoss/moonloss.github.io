@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-12-14T12:42:17Z</updated>
+  <updated>2017-12-15T07:54:02Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -29,8 +29,8 @@
   </entry>
   <entry>
     <title>初探 PhantomJS + Selenium 模拟浏览器行为</title>
-    <updated>2017-06-30T10:48:30+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-06-30:/post/2017/04/28/phantomjs.html</id>
+    <updated>2017-12-15T15:50:30+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-12-15:/post/2017/04/28/phantomjs.html</id>
     <content type="html">&lt;p&gt;首先，简单介绍一下 PhantomJS ，它是一个基于 WebKit 的服务器端 JavaScript API ，无需浏览器的支持即可实现对 Web 的支持，且原生支持各种 Web 标准。适合使用在 &lt;em&gt;Web 测试&lt;/em&gt; ，当然也可以应对反爬虫。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2017/04/28/phantomjs.html"></link>
     <author>
