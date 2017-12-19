@@ -17,7 +17,7 @@ menuentry &quot;Linux Mint&quot;{
 	icon /EFI/refind/icons/os_linuxmint.png
     loader /EFI/ubuntu/shimx64.efi
 }
-</code></pre><p>注：<code>shimx64.efi</code>这个引导文件是已经加过签名的，而<code>grubx64.efi</code>则没有。因此，使用<code>shimx64.efi</code>后是可以开启 BIOS 的<code>secure boot</code>的 。**若开启了<code>secure boot</code>，还需在 BIOS 中加入 rEFInd 的证书，是这个两个文件<code>refind.cer</code>和<code>refind.crt</code> **。</p><p>Windows 用户可以使用 DiskGenius 和 <a href="http://www.ipauly.com/2015/11/15/bootice/">BOOTICE</a> (可以修改多系统启动顺序，另外它还有其他主要功能) 这两个工具进行相关的设置。</p><p>Linux 用户可使用 efibootmgr 管理 efi 启动项(添加、删除、改变顺序): <code>sudo efibootmgr -o 0000,0002,0001,0003</code></p><pre><code>BootCurrent: 0001
+</code></pre><p>注：<code>shimx64.efi</code>这个引导文件是已经加过签名的，而<code>grubx64.efi</code>则没有。因此，使用<code>shimx64.efi</code>后是可以开启 BIOS 的<code>secure boot</code>的 。 **若开启了<code>secure boot</code>，还需在 BIOS 中加入 rEFInd 的证书，是这个两个文件<code>refind.cer</code>和<code>refind.crt</code> **。</p><p>Windows 用户可以使用 DiskGenius 和 <a href="http://www.ipauly.com/2015/11/15/bootice/">BOOTICE</a> (可以修改多系统启动顺序，另外它还有其他主要功能) 这两个工具进行相关的设置。</p><p>Linux 用户可使用 efibootmgr 管理 efi 启动项(添加、删除、改变顺序): <code>sudo efibootmgr -o 0000,0002,0001,0003</code></p><pre><code>BootCurrent: 0001
 
 Timeout: 2 seconds
 
