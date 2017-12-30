@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2017-12-28T16:18:12Z</updated>
+  <updated>2017-12-30T05:20:49Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
     <name>True Me</name>
   </author>
+  <entry>
+    <title>动手搭起属于自己的云笔记环境</title>
+    <updated>2017-12-30T12:45:00+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-12-30:/post/2017/12/26/rclone-and-notes.html</id>
+    <content type="html">&lt;p&gt;在这个知识经济时代，如何把有用的信息、知识构建起来，形成一套自己的知识系统？这篇文章将会提供一种我的做法。&lt;/p&gt;&#xA;</content>
+    <link href="https://zetaoyang.github.io./post/2017/12/26/rclone-and-notes.html"></link>
+    <author>
+      <name>Zetao Yang</name>
+    </author>
+  </entry>
   <entry>
     <title>让 Disqus「重获新生」</title>
     <updated>2017-10-06T20:18:43+08:00</updated>
@@ -19,8 +29,8 @@
   </entry>
   <entry>
     <title>我的 Linux Mint 『配置』清单</title>
-    <updated>2017-12-15T18:12:37+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-12-15:/post/2017/06/20/my-linux-mint-configuration.html</id>
+    <updated>2017-12-30T12:45:37+08:00</updated>
+    <id>tag:zetaoyang.github.io.,2017-12-30:/post/2017/06/20/my-linux-mint-configuration.html</id>
     <content type="html">&lt;p&gt;在使用自己的系统 (Linux Mint) 时，不由地担心万一哪天坏掉，要重装系统，这么多配置好的环境怎么恢复啊，因此整理出一篇博文记录一下自己平时常用软件以及开发环境配置，以备不时之需。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2017/06/20/my-linux-mint-configuration.html"></link>
     <author>
@@ -93,16 +103,6 @@
     <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/11/13/caddy-server.html</id>
     <content type="html">&lt;p&gt;昨天在自己的 VPS (运行 Debian 8 64bits )上，使用  Caddy 作为 Web 服务器。现将配置流程记录一下。&lt;/p&gt;&#xA;</content>
     <link href="https://zetaoyang.github.io./post/2016/11/13/caddy-server.html"></link>
-    <author>
-      <name>Zetao Yang</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Linux 下用 Clion 编写及调用共享库的实践</title>
-    <updated>2016-11-18T16:22:33+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-11-18:/post/2016/11/05/linux-shared-object.html</id>
-    <content type="html">&lt;p&gt;尝试了一下，Windows 下 Codeblocks 利用 Mingw 编译器编写动态链接库，结果虽然 dll 是生成了，但过程还是不太满意。因为 dll 是 Windows 下才用到的，似乎用 GNU 的编译器不太合适，最终还是改用 VS2015 (虽然它很‘臃肿’)。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/11/05/linux-shared-object.html"></link>
     <author>
       <name>Zetao Yang</name>
     </author>

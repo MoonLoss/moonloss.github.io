@@ -19,7 +19,8 @@ var dictumin = new Array(
     '“小时候幸福是一件简单的事，长大后简单是一种幸福的事”',
     '“将善举当成一种习惯去饯行一辈子，生命就可以在黑暗中璀璨”',
     '"May God break my heart so completely that the whole world falls in." ― Mother Teresa',
-    '"Find out who you are - and try not to be afraid of it" ― Josie Geller'
+    '"Find out who you are - and try not to be afraid of it" ― Josie Geller',
+    '我住长江头，君住长江尾。 I live at the uper place of the Yangze River,you lower.'
 
  );
 
