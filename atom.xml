@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>True Me</title>
   <id>https://zetaoyang.github.io</id>
-  <updated>2018-01-11T13:01:37Z</updated>
+  <updated>2018-01-23T09:42:35Z</updated>
   <subtitle>Chase the excellence, success will follow you.</subtitle>
   <link href="https://zetaoyang.github.io"></link>
   <author>
@@ -10,9 +10,9 @@
   <entry>
     <title>动手搭起属于自己的云笔记环境</title>
     <updated>2017-12-30T12:45:00+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-12-30:/post/2017/12/26/rclone-and-notes.html</id>
+    <id>tag:zetaoyang.github.io,2017-12-30:/./post/2017/12/26/rclone-and-notes.html</id>
     <content type="html">&lt;p&gt;在这个知识经济时代，如何把有用的信息、知识构建起来，形成一套自己的知识系统？这篇文章将会提供一种我的做法。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/12/26/rclone-and-notes.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/12/26/rclone-and-notes.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -20,9 +20,9 @@
   <entry>
     <title>让 Disqus「重获新生」</title>
     <updated>2017-10-06T20:18:43+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-10-06:/post/2017/10/06/regain-disqus.html</id>
+    <id>tag:zetaoyang.github.io,2017-10-06:/./post/2017/10/06/regain-disqus.html</id>
     <content type="html">&lt;p&gt;由于 Disqus 大陆无法正常访问，所以很长一段时间我博客原生的 Disqus 评论框，只有大陆外和「掌握科学上网」技能的人，才能看见和评论。访客要留言，和我交流都得要「科学上网」吗？如果评论系统不能正常评论，那还要它干啥？后来，找到了比较好的解决之道。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/10/06/regain-disqus.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/10/06/regain-disqus.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -30,9 +30,9 @@
   <entry>
     <title>我的 Linux Mint 『配置』清单</title>
     <updated>2017-12-30T12:45:37+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-12-30:/post/2017/06/20/my-linux-mint-configuration.html</id>
+    <id>tag:zetaoyang.github.io,2017-12-30:/./post/2017/06/20/my-linux-mint-configuration.html</id>
     <content type="html">&lt;p&gt;在使用自己的系统 (Linux Mint) 时，不由地担心万一哪天坏掉，要重装系统，这么多配置好的环境怎么恢复啊，因此整理出一篇博文记录一下自己平时常用软件以及开发环境配置，以备不时之需。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/06/20/my-linux-mint-configuration.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/06/20/my-linux-mint-configuration.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -40,9 +40,9 @@
   <entry>
     <title>初探 PhantomJS + Selenium 模拟浏览器行为</title>
     <updated>2017-12-15T15:50:30+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-12-15:/post/2017/04/28/phantomjs.html</id>
+    <id>tag:zetaoyang.github.io,2017-12-15:/./post/2017/04/28/phantomjs.html</id>
     <content type="html">&lt;p&gt;首先，简单介绍一下 PhantomJS ，它是一个基于 WebKit 的服务器端 JavaScript API ，无需浏览器的支持即可实现对 Web 的支持，且原生支持各种 Web 标准。适合使用在 &lt;em&gt;Web 测试&lt;/em&gt; ，当然也可以应对反爬虫。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/04/28/phantomjs.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/04/28/phantomjs.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -50,9 +50,9 @@
   <entry>
     <title>Geohash 编码解码 C 语言实现</title>
     <updated>2017-03-20T11:03:42+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-03-20:/post/2017/03/20/geohash.html</id>
+    <id>tag:zetaoyang.github.io,2017-03-20:/./post/2017/03/20/geohash.html</id>
     <content type="html">&lt;p&gt;Geohash，是由 Gustavo Niemeyer  提出对地图坐标进行编码的一种方式。其思想策略是分治，将地理坐标值转化为二进制码。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/03/20/geohash.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/03/20/geohash.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -60,9 +60,9 @@
   <entry>
     <title>给你的独立博客加上夜间模式以及 Service Worker</title>
     <updated>2017-03-04T19:28:23+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-03-04:/post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html</id>
+    <id>tag:zetaoyang.github.io,2017-03-04:/./post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html</id>
     <content type="html">&lt;p&gt;现在很多 APP 都有夜间模式，看到简书网站改版后也添加了夜间模式切换，所以就在自己的博客上实践。至于 Service Worker 是什么本文不再赘述，只是将实现过程记录下来，供各位看官参考。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2017/02/27/add-night-mode-and-service-worker-for-your-blog.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -70,9 +70,9 @@
   <entry>
     <title> 2016 年，我的收获与成长 </title>
     <updated>2016-12-31T08:28:23+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-12-31:/post/2016/12/30/2016-summary.html</id>
+    <id>tag:zetaoyang.github.io,2016-12-31:/./post/2016/12/30/2016-summary.html</id>
     <content type="html">&lt;p&gt;2016 年即将结束，马上迎来 2017。我在 Github 上的独立博客将近有半年了。最初博客由 Hexo 驱动，后来迁移到了 Hugo 阵营，再后来用上了「紙小墨」，总之，就是不断地折腾。十月份给博客加上了访客统计。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/12/30/2016-summary.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2016/12/30/2016-summary.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -80,9 +80,9 @@
   <entry>
     <title>[译] 给予设计师灵感的 11 个顶尖网站</title>
     <updated>2016-12-24T22:36:41+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2016-12-24:/post/2016/12/24/t-top-inspiration-websites-for-designers.html</id>
+    <id>tag:zetaoyang.github.io,2016-12-24:/./post/2016/12/24/t-top-inspiration-websites-for-designers.html</id>
     <content type="html">&lt;p&gt;本文是在众成翻译认领翻译的，原文链接在这 here。感谢月影审校润色。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/12/24/t-top-inspiration-websites-for-designers.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2016/12/24/t-top-inspiration-websites-for-designers.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -90,9 +90,9 @@
   <entry>
     <title>Wireshark 监听 localhost/127.0.0.1 环回地址的方法</title>
     <updated>2017-10-05T13:37:57+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/12/04/wireshark-npcap.html</id>
+    <id>tag:zetaoyang.github.io,2017-10-05:/./post/2016/12/04/wireshark-npcap.html</id>
     <content type="html">&lt;p&gt;由于 Windows 系统没有提供本地环回网络的接口，所以用 Wireshark 只能看到经过网卡的数据流量，看不到访问 localhost/127.0.0.1 的流量。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/12/04/wireshark-npcap.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2016/12/04/wireshark-npcap.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
@@ -100,9 +100,9 @@
   <entry>
     <title> Debian 上搭建 Caddy Server </title>
     <updated>2017-10-05T13:37:57+08:00</updated>
-    <id>tag:zetaoyang.github.io.,2017-10-05:/post/2016/11/13/caddy-server.html</id>
+    <id>tag:zetaoyang.github.io,2017-10-05:/./post/2016/11/13/caddy-server.html</id>
     <content type="html">&lt;p&gt;昨天在自己的 VPS (运行 Debian 8 64bits )上，使用  Caddy 作为 Web 服务器。现将配置流程记录一下。&lt;/p&gt;&#xA;</content>
-    <link href="https://zetaoyang.github.io./post/2016/11/13/caddy-server.html"></link>
+    <link href="https://zetaoyang.github.io/./post/2016/11/13/caddy-server.html" rel="alternate"></link>
     <author>
       <name>Zetao Yang</name>
     </author>
