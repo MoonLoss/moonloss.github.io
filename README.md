@@ -1,5 +1,5 @@
-## Ture Me
-> Zetao's blog  
+## Alume
+> Zetao's algorithm blog  
 
 Hosted on Github Pages.   
 Using CI on Gitlab.  
