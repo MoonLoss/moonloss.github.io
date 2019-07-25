@@ -3,6 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>介绍 debugger.html ★ Mozilla Hacks ——Web 开发人员博客 | Alume</title>
+  <!-- Chrome -->
+  <meta name="theme-color" content="#e7e7e7">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#6d6e71">
+  <!--iOS Safari-->
+  <meta name="apple-mobile-web-app-title" content="O.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
   <meta name="keywords" content=" firefox , debugger ">
   <meta name="description" content="介绍 debugger.html ★ Mozilla Hacks ——Web 开发人员博客 | Alume">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,7 +24,7 @@
 <meta property="og:url" content="https://zty.js.org/about/index.html">
 <meta property="og:site_name" content="Alume">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-25T14:20:05.000Z">
+<meta property="og:updated_time" content="2019-07-25T14:30:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 
@@ -44,7 +57,7 @@
 </head>
 <div style="display: none">
   <input class="theme_disqus_on" value="true">
-  <input class="theme_preload_comment" value="false">
+  <input class="theme_preload_comment" value="true">
   <input class="theme_blog_path" value>
 </div>
 
@@ -360,33 +373,7 @@
         }
     </script>
     
-    <aside class="comment-bar">
-        <a href="javascript:void(0);">
-            <i class="fa fa-commenting-o animated infinite pulse"></i>
-            <i class="fa fa-spinner fa-pulse"></i>
-            <span class="count-comment"></span>
-        </a>
-    </aside>
-    <script>
-        var isLoadComments = false;
-        var $commentBar = $("#comments aside.comment-bar");
-        var load$hide = function(){
-            if(isLoadComments){
-                return;
-            }
-            isLoadComments = true;
-            if(isLoadComments )
-            $commentBar.find("a > i").toggle();
-            loadComment();
-            $commentBar.fadeOut(800);
-        }
-        $commentBar.click(function(){
-            load$hide();
-        })
-        $commentBar.children("a").mouseenter(function(){
-            load$hide();
-        })
-    </script>
+    <script> loadComment(); </script>
 
 </section>
 
