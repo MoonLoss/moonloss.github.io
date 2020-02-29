@@ -1,6 +1,6 @@
-## Alume
-> Zetao's algorithm blog  
+## Itzy
+> Zetao's technology & thought blog 
 
 Hosted on Github Pages.   
-Using CI on Gitlab.  
-Powered by [3-hexo](https://github.com/yelog/hexo-theme-3-hexo) and I add some new features.
+CI based on Githab Action.  
+Powered by Gatsbyjs, based on theme [rocket](https://github.com/Raincal/gatsby-theme-rocket) and I add some new features.

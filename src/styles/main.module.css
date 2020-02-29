@@ -1,0 +1,14 @@
+@import './global/main.css';
+@import './_variables.css';
+.main {
+  max-width: 1390px;
+  padding: 0 40px 0 290px;
+  @media (--medium) {
+    width: 100%;
+    padding-left: 115px;
+  }
+  @media (--small) {
+    padding: 6px 20px 0;
+    overflow-wrap: break-word;
+  }
+}

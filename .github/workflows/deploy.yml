@@ -1,0 +1,57 @@
+name: Gatsby CICD
+
+on:
+  push:
+    branches:
+    - dev
+
+# on:
+#   # 1. Trigger the workflow every 2 hours
+#   schedule:
+#     - cron: "0 */2 * * *"    
+
+jobs:
+  build-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+        registry-url: 'https://registry.npmjs.org'  # https://registry.npm.taobao.org
+
+    - name: Cache NPM dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-npm-cache
+        restore-keys: |
+            ${{ runner.OS }}-npm-cache-
+
+    - name: Install Dependencies
+      run: |
+        npm install
+        
+    - name: Lint & Format
+      run: |
+        npm run lint:code
+        npm run lint:md
+        npm run format:code
+        npm run format
+
+    - name: Generate
+      run: npm run clean && npm run build
+      
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./public
+        publish_branch: master  # deploying branch
