@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://zty.js.org/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/rclone-and-notes/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/regain-disqus/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/my-linux-mint-configuration/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/phantomjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/geohash/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/add-night-mode-and-service-worker-for-your-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/2016-summary/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/t-top-inspiration-websites-for-designers/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/wireshark-npcap/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/caddy-server/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/linux-shared-object/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/rime/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/refind/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/gitlab-ci/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/compile-linux-kernal/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/progressive-encoding-jpeg/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/github-api/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/rsa/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/t-debugger-html/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/hexo-ssh-key/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/post/hexo-localsearch/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/archives/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zty.js.org/links/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
