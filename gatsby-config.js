@@ -98,6 +98,8 @@ module.exports = {
         theme_color: `#0188e9`,
         display: `standalone`,
         icon: `src/images/icon.png`,
+        include_favicon: true,
+        crossOrigin: `use-credentials`
       },
     },
     `gatsby-plugin-offline` // This plugin must be behind the manifest
