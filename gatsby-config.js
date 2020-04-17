@@ -61,12 +61,12 @@ module.exports = {
         anonymize: true,
         // Disable analytics for users with `Do Not Track` enabled
         respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ['/preview/**'],
-        // Specifies what percentage of users should be tracked
-        sampleRate: 100,
-        // Determines how often site speed tracking beacons will be sent
-        siteSpeedSampleRate: 10,
+        // // Avoids sending pageview hits from custom paths
+        // exclude: ['/preview/**'],
+        // // Specifies what percentage of users should be tracked
+        // sampleRate: 100,
+        // // Determines how often site speed tracking beacons will be sent
+        // siteSpeedSampleRate: 10,
       },
     },
     'gatsby-plugin-catch-links',
@@ -91,8 +91,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Zetao'Blog`,
-        short_name: `zty`,
+        name: `MoonLoss`,
+        short_name: `moonloss`,
         start_url: `/`,
         background_color: `#0188e9`,
         theme_color: `#0188e9`,
