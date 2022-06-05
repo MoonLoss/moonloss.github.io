@@ -1,4 +1,4 @@
-name: Gatsby CICD
+name: Gatsby auto-deploy
 
 on:
   push:
@@ -13,33 +13,23 @@ on:
 jobs:
   build-deploy:
     name: Build & Deploy
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
-    - name: Checkout submodules
-      shell: bash
-      run: |
-        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-        # git config --global url."https://github.com/".insteadOf "git@github.com:"
-        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-        git submodule sync --recursive
-        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+      uses: actions/checkout@v3
+      with:
+        ref: dev
+        fetch-depth: 0
+        submodules: true
 
     - name: Setup node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
-        registry-url: 'https://registry.npmjs.org'  # https://registry.npm.taobao.org
-
-    - name: Cache NPM dependencies
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: ${{ runner.OS }}-npm-cache
-        restore-keys: |
-            ${{ runner.OS }}-npm-cache-
+        node-version: 16
+        cache: 'npm'
+        # https://registry.npm.taobao.org
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Install Dependencies
       run: |
@@ -56,6 +46,6 @@ jobs:
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        personal_token: ${{ secrets.MOONLOSS_DEPLOY_TOKEN }}
         publish_dir: ./public
         publish_branch: master  # deploying branch
