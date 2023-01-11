@@ -55,7 +55,7 @@
     "gatsby-remark-images": "^3.2.4",
     "gatsby-remark-prismjs": "^3.4.3",
     "gatsby-source-filesystem": "^2.2.4",
-    "gatsby-transformer-remark": "^2.7.3",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-yaml": "^2.3.3",
     "lodash": "^4.17.15",
     "postcss-import": "^12.0.1",
