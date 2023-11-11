@@ -1,0 +1,9 @@
+- name: GitHub
+  icon: github-v
+  url: https://github.com/ZetaoYang
+- name: RSS
+  icon: rss-v
+  url: https://www.moonloss.com/rss.xml
+- name: Search
+  icon: search
+  url: https://www.google.com/search?q=site%3Awww.moonloss.com

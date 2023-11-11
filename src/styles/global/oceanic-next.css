@@ -1,0 +1,255 @@
+@import '../_variables.css';
+:root {
+  --dark: #282c34;
+  --white: #ffffff;
+  --comment: #b2b2b2;
+  --keyword: #ef3b7d;
+  --lineHighlight: #353b45;
+  --primitive: #5a9bcf;
+  --string: #8dc891;
+  --variable: #d7deea;
+  --boolean: #ff8b50;
+  --punctuation: #88c6be;
+  --tag: #fc929e;
+  --function: #79b6f2;
+  --className: #fac863;
+  --method: #6699cc;
+  --operator: #a77afe;
+}
+
+.gatsby-highlight {
+  font-family: source-code-pro, Menlo, Consolas, Monaco, 'Andale Mono',
+    'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  background: var(--dark);
+  color: var(--white);
+  border-radius: 5px;
+  tab-size: 1.5em;
+  position: relative;
+  @media (--vert-small) {
+    margin: 0 -20px;
+    border-radius: 0;
+  }
+}
+
+.gatsby-highlight::before {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  padding: 1px 10px;
+  font-size: 12px;
+  color: #444;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: 0 0 5px 5px;
+  background: #ddd;
+  @media (--vert-small) {
+    background-color: transparent !important;
+    color: #dddddd19;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+.gatsby-highlight[data-language='javascript']::before {
+  content: 'js';
+  background: #f7df1e;
+}
+
+.gatsby-highlight[data-language='js']::before {
+  content: 'js';
+  background: #f7df1e;
+}
+
+.gatsby-highlight[data-language='jsx']::before {
+  content: 'jsx';
+  background: #61dafb;
+}
+
+.gatsby-highlight[data-language='graphql']::before {
+  content: 'GraphQL';
+  background: #e10098;
+  color: #fff;
+  font-weight: 400;
+}
+
+.gatsby-highlight[data-language='html']::before {
+  content: 'html';
+  background: #005a9c;
+  color: #fff;
+  font-weight: 400;
+}
+
+.gatsby-highlight[data-language='css']::before {
+  content: 'css';
+  background: #ff9800;
+  color: #fff;
+  font-weight: 400;
+}
+
+.gatsby-highlight[data-language='shell']::before {
+  content: 'shell';
+}
+
+.gatsby-highlight[data-language='sh']::before {
+  content: 'sh';
+}
+
+.gatsby-highlight[data-language='bash']::before {
+  content: 'bash';
+}
+
+.gatsby-highlight[data-language='yaml']::before {
+  content: 'yaml';
+  background: #ffa8df;
+}
+
+.gatsby-highlight[data-language='markdown']::before {
+  content: 'md';
+}
+
+.gatsby-highlight[data-language='json']::before,
+.gatsby-highlight[data-language='json5']::before {
+  content: 'json';
+  background: linen;
+}
+
+.gatsby-highlight[data-language='diff']::before {
+  content: 'diff';
+  background: #e6ffed;
+}
+
+.gatsby-highlight[data-language='text']::before {
+  content: 'text';
+  background: #fff;
+}
+
+.gatsby-highlight[data-language='flow']::before {
+  content: 'flow';
+  background: #e8bd36;
+}
+
+.gatsby-highlight pre[class*='language-'] {
+  background-color: transparent;
+  line-height: 1.5;
+  padding: 20px;
+  margin: 0.85rem 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gatsby-highlight pre code {
+  display: block;
+  float: left;
+  min-width: 100%;
+  font-family: source-code-pro, Menlo, Consolas, Monaco, 'Andale Mono',
+    'Ubuntu Mono', monospace;
+}
+
+.gatsby-highlight-code-line {
+  background-color: var(--lineHighlight);
+  display: block;
+  margin: 0 -20px;
+  padding: 0.125rem 20px;
+}
+
+.token.attr-name {
+  color: var(--keyword);
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--comment);
+}
+
+.token.property,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--primitive);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--boolean);
+}
+
+.token.tag {
+  color: var(--tag);
+}
+
+.token.string {
+  color: var(--string);
+}
+
+.token.punctuation {
+  color: var(--punctuation);
+}
+
+.token.selector,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--char);
+}
+
+.token.function {
+  color: var(--function);
+}
+
+.token.operator {
+  color: var(--operator);
+}
+
+.token.entity,
+.token.url,
+.token.variable {
+  color: var(--variable);
+}
+
+.token.attr-value {
+  color: var(--string);
+}
+
+.token.keyword {
+  color: var(--keyword);
+}
+
+.token.atrule,
+.token.class-name {
+  color: var(--className);
+}
+
+.token.important {
+  font-weight: 400;
+}
+
+.token.bold {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.table-wrapper {
+  margin-bottom: 1.45rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

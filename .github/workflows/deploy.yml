@@ -1,0 +1,51 @@
+name: Gatsby auto-deploy
+
+on:
+  push:
+    branches:
+    - dev
+
+# on:
+#   # 1. Trigger the workflow every 2 hours
+#   schedule:
+#     - cron: "0 */2 * * *"    
+
+jobs:
+  build-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-20.04
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: dev
+        fetch-depth: 0
+        submodules: true
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'npm'
+        # https://registry.npm.taobao.org
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install Dependencies
+      run: |
+        npm install
+        
+    - name: Format
+      run: |
+        npm run format:code
+        npm run format
+
+    - name: Generate
+      run: npm run clean && npm run build
+      
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.MOONLOSS_DEPLOY_TOKEN }}
+        publish_dir: ./public
+        publish_branch: master  # deploying branch

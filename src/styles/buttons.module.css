@@ -1,0 +1,77 @@
+@import './_variables.css';
+.buttons {
+  padding: 0;
+  list-style: none;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.buttons li {
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+}
+
+.buttons li a {
+  padding-left: 25px;
+  color: #999;
+  display: block;
+  transition: color .2s cubic-bezier(.4, .01, .165, .99);
+  &:hover {
+    color: rgba(153, 153, 153, .8)
+  }
+}
+
+.buttons li a i {
+  font-size: 20px;
+  text-align: center;
+  width: 25px;
+  height: 44px;
+  margin-right: 20px;
+  font-style: normal;
+  display: inline-block;
+}
+
+.buttons li .inline {
+  display: inline-block;
+  width: 40px;
+}
+
+.title {
+  @media (--medium) {
+    display: none;
+  }
+}
+
+@media(--small) {
+  .buttons:nth-child(3) {
+    display: none;
+  }
+  .buttons {
+    display: flex;
+  }
+  .buttons li {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    /* line-height: 44px; */
+  }
+  .buttons li a {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  .buttons li a i {
+    margin: 0;
+    color: #182543;
+  }
+  .active {
+    background: #243c6d;
+  }
+  .buttons .active i{
+    color: #ffffff;
+  }
+  .title {
+    display: none;
+  }
+}
